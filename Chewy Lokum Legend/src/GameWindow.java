@@ -1,9 +1,5 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
 
 @SuppressWarnings("serial")
 public class GameWindow extends JPanel {
@@ -25,7 +21,6 @@ public class GameWindow extends JPanel {
 
 		informationWindow = new InformationWindow(180, 120);
 		informationWindow.setLocation(441, 0);
-
 
 		add(informationWindow);
 
