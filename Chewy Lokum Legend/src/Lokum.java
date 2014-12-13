@@ -1,7 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Lokum implements LokumDrawerAdapter {
+public abstract class Lokum implements Drawable {
 
 	public static final Color[] lokumColors = { Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.PINK, Color.BLACK };
 	private Color color;
@@ -65,12 +65,6 @@ public class Lokum implements LokumDrawerAdapter {
 			return true;
 		}
 		return false;
-	}
-
-	@Override
-	public void drawlokum(Graphics g) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

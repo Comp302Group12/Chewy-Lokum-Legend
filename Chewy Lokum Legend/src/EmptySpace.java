@@ -2,7 +2,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class EmptySpace extends Lokum implements LokumDrawerAdapter {
+public class EmptySpace extends Lokum {
 
 	public EmptySpace() {
 		// TODO Auto-generated constructor stub
@@ -15,7 +15,7 @@ public class EmptySpace extends Lokum implements LokumDrawerAdapter {
 	}
 
 	@Override
-	public void drawlokum(Graphics g) {
+	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
 	}
 

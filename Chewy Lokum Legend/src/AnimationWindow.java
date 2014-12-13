@@ -44,7 +44,7 @@ public class AnimationWindow extends JPanel {
 	protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
-		game.board.drawBoard(g);
+		game.board.draw(g);
 		//System.out.println(getWidth());
 		//System.out.println(getHeight());
 	}

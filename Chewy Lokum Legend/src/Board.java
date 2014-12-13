@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
-public class Board {
+public class Board implements Drawable {
 	private int boardWidth;
 	private int boardHeight;
 	private int numOfLokumsInAColumn;
@@ -97,7 +97,7 @@ public class Board {
 		return new NormalLokum(randomColor, x, y, lokumWidth, lokumHeight);
 	}
 
-	public void drawBoard(Graphics g) {
+	public void draw(Graphics g) {
 		drawLines(g);
 		drawLokums(g);
 	}
@@ -115,7 +115,7 @@ public class Board {
 	public void drawLokums(Graphics g) {
 		for(int i=0; i<numOfLokumsInAColumn; i++){
 			for(int j=0; j<numOfLokumsInARow; j++){
-				lokumArray[i][j].drawlokum(g);
+				lokumArray[i][j].draw(g);
 			}
 		}
 	}
