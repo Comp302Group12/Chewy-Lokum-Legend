@@ -3,11 +3,11 @@ public class GamePlay {
 	Lokum selectedLokum1;
 	Lokum selectedLokum2;
 	
-	Board board;
+	Level level;
 	
-	public GamePlay(int width, int height) {
+	public GamePlay(Level level) {
 		// TODO Auto-generated constructor stub
-		board = new Board(width, height, 8, 8);
+		this.level = level;
 	}
 	
 	/*public void selectLokum(int x, int y) {

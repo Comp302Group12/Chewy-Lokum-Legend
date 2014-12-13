@@ -2,7 +2,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class StripedLokum extends Lokum {
+public class StripedLokum extends Lokum implements Movable, Destructible {
 
 	private boolean isHorizontal;
 
@@ -31,5 +31,11 @@ public class StripedLokum extends Lokum {
 		// TODO Auto-generated method stub
 		AdapterManager.getInstance().getCurrentDrawingAdapter().draw(g, this);
 	}
-	
+
+	public void move(int x, int y) {
+		// TODO Auto-generated method stub
+		setX(getX()+x);
+		setY(getY()+y);
+	}
+
 }

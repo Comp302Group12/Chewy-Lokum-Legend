@@ -5,22 +5,28 @@ import java.util.Random;
 public class Board implements Drawable {
 	private int width;
 	private int height;
+	private String[][] boardShape;
 	private int numOfLokumsInAColumn;
 	private int numOfLokumsInARow;
 	private Lokum[][] lokumArray;
 
-	int lokumWidth;
-	int lokumHeight;
+	private int blockWidth;
+	private int blockHeight;
+	private int lokumWidth;
+	private int lokumHeight;
 
-	Board(int width, int height, int numOfLokumsInAColumn, int numOfLokumsInARow) {
+	Board(int width, int height, String[][] boardShape) {
 		// TODO Auto-generated constructor stub
 		this.width = width;
 		this.height = height;
-		this.numOfLokumsInAColumn = numOfLokumsInAColumn;
-		this.numOfLokumsInARow = numOfLokumsInARow;
+		this.boardShape = boardShape;
+		this.numOfLokumsInAColumn = boardShape.length;
+		this.numOfLokumsInARow = boardShape[0].length;
 		lokumArray = new Lokum[numOfLokumsInAColumn][numOfLokumsInARow];
-		lokumWidth = width/numOfLokumsInARow*4/5;
-		lokumHeight = height/numOfLokumsInAColumn*4/5;
+		blockWidth = width/numOfLokumsInARow;
+		blockHeight = height/numOfLokumsInAColumn;
+		lokumWidth = blockWidth*4/5;
+		lokumHeight = blockHeight*4/5;
 		fillBoardRandomly();
 	}
 
@@ -64,20 +70,44 @@ public class Board implements Drawable {
 		this.lokumArray = lokumArray;
 	}
 
+	public int getBlockWidth() {
+		return blockWidth;
+	}
+
+	public void setBlockWidth(int blockWidth) {
+		this.blockWidth = blockWidth;
+	}
+
+	public int getBlockHeight() {
+		return blockHeight;
+	}
+
+	public void setBlockHeight(int blockHeight) {
+		this.blockHeight = blockHeight;
+	}
+
+	public int getLokumWidth() {
+		return lokumWidth;
+	}
+
+	public void setLokumWidth(int lokumWidth) {
+		this.lokumWidth = lokumWidth;
+	}
+
+	public int getLokumHeight() {
+		return lokumHeight;
+	}
+
+	public void setLokumHeight(int lokumHeight) {
+		this.lokumHeight = lokumHeight;
+	}
+
 	public void fillBoardRandomly() {
 		for(int i=0; i<numOfLokumsInAColumn; i++){
 			for(int j=0; j<numOfLokumsInARow; j++){
-				int x = (int) ((j*width/numOfLokumsInARow)+(width/numOfLokumsInARow-lokumWidth)/2);
-				int y = (int) ((i*height/numOfLokumsInAColumn)+(height/numOfLokumsInAColumn-lokumHeight)/2);
-				lokumArray[i][j] = createRandomNormalLokum(x, y);
+				lokumArray[i][j] = createRandomLokum(boardShape[i][j], i, j);
 			}
 		}
-		lokumArray[0][0] = new EmptySpace();
-		lokumArray[0][1] = new NormalLokum(Color.YELLOW, lokumArray[0][1].getX(), lokumArray[0][1].getY(), lokumWidth, lokumHeight);
-		lokumArray[0][2] = new StripedLokum(Color.RED, lokumArray[0][2].getX(), lokumArray[0][2].getY(), lokumWidth, lokumHeight, false);
-		lokumArray[0][3] = new StripedLokum(Color.BLUE, lokumArray[0][3].getX(), lokumArray[0][3].getY(), lokumWidth, lokumHeight, true);
-		lokumArray[0][4] = new WrappedLokum(Color.GREEN, lokumArray[0][4].getX(), lokumArray[0][4].getY(), lokumWidth, lokumHeight);
-		lokumArray[0][5] = new ColorBombLokum(lokumArray[0][5].getX(), lokumArray[0][5].getY(), lokumWidth, lokumHeight);
 	}
 
 	public Lokum lokumAtPosition(int x, int y){		
@@ -91,10 +121,34 @@ public class Board implements Drawable {
 		return null;		
 	}
 
-	public NormalLokum createRandomNormalLokum(int x, int y) {
+	public Lokum createRandomLokum(String typeOfLokum, int i, int j) {
 		Random rgen = new Random();
 		Color randomColor = Lokum.lokumColors[rgen.nextInt(Lokum.lokumColors.length)];
-		return new NormalLokum(randomColor, x, y, lokumWidth, lokumHeight);
+		Lokum lokum = null;
+		try {
+			lokum = (Lokum) Class.forName(typeOfLokum).newInstance();
+			if(lokum instanceof Destructible) {
+				int x = (j*blockWidth)+(blockWidth-lokumWidth)/2;
+				int y = (i*blockHeight)+(blockHeight-lokumHeight)/2;
+				lokum.setColor(randomColor);
+				lokum.setX(x);
+				lokum.setY(y);
+				lokum.setWidth(lokumWidth);
+				lokum.setHeight(lokumHeight);
+			} else {
+				int x = j*blockWidth;
+				int y = i*blockHeight;
+				lokum.setX(x);
+				lokum.setY(y);
+				lokum.setWidth(blockWidth);
+				lokum.setHeight(blockHeight);
+			}
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lokum;
 	}
 
 	public void draw(Graphics g) {

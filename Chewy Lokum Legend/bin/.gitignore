@@ -19,3 +19,11 @@
 /ObjectiveAdapter.class
 /MoveBasedObjectiveAdapter.class
 /TimeBasedObjectiveAdapter.class
+/Level.class
+/MoveBasedLevel.class
+/TimeBasedLevel.class
+/Level1.class
+/Objective.class
+/Movable.class
+/Obstacle.class
+/Destructible.class

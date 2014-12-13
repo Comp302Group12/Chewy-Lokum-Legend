@@ -12,13 +12,21 @@ public class SimpleGraphicsDrawingAdapter extends DrawingAdapter {
 	}
 
 	@Override
+	public void draw(Graphics g, Obstacle obstacle) {
+		// TODO Auto-generated method stub
+		g.setColor(obstacle.getColor());
+		g.fillRect(obstacle.getX(), obstacle.getY(), obstacle.getWidth(),
+				obstacle.getHeight());
+	}
+
+	@Override
 	public void draw(Graphics g, NormalLokum lokum) {
 		// TODO Auto-generated method stub
 		g.setColor(lokum.getColor());
 		g.fillRoundRect(lokum.getX(), lokum.getY(), lokum.getWidth(),
 				lokum.getHeight(), lokum.getWidth()
-						/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, lokum.getHeight()
-						/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
+				/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, lokum.getHeight()
+				/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
 	}
 
 	@Override
@@ -29,8 +37,8 @@ public class SimpleGraphicsDrawingAdapter extends DrawingAdapter {
 			g.setColor(lokum.getColor());
 			g.fillRoundRect(lokum.getX(), lokum.getY(), lokum.getWidth(),
 					lokum.getHeight(), lokum.getWidth()
-							/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, lokum.getHeight()
-							/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
+					/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, lokum.getHeight()
+					/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
 			g.setColor(Color.WHITE);
 			g.fillRect(lokum.getX(), lokum.getY() + heightOfLokumPart,
 					lokum.getWidth(), heightOfLokumPart);
@@ -41,8 +49,8 @@ public class SimpleGraphicsDrawingAdapter extends DrawingAdapter {
 			g.setColor(lokum.getColor());
 			g.fillRoundRect(lokum.getX(), lokum.getY(), lokum.getWidth(),
 					lokum.getHeight(), lokum.getWidth()
-							/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, lokum.getHeight()
-							/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
+					/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, lokum.getHeight()
+					/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
 			g.setColor(Color.WHITE);
 			g.fillRect(lokum.getX() + widthOfLokumPart, lokum.getY(),
 					widthOfLokumPart, lokum.getHeight());
@@ -60,8 +68,8 @@ public class SimpleGraphicsDrawingAdapter extends DrawingAdapter {
 		g.setColor(colorOfOuterPart);
 		g.fillRoundRect(lokum.getX(), lokum.getY(), lokum.getWidth(),
 				lokum.getHeight(), lokum.getWidth()
-						/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, lokum.getHeight()
-						/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
+				/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, lokum.getHeight()
+				/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
 		g.setColor(lokum.getColor());
 		g.fillOval(
 				(lokum.getX() + (lokum.getWidth() - lokum.getWidth() * 3 / 5) / 2),
@@ -82,29 +90,20 @@ public class SimpleGraphicsDrawingAdapter extends DrawingAdapter {
 					(lokum.getX() + (lokum.getWidth() - widthOfLokumPart) / 2),
 					(lokum.getY() + (lokum.getHeight() - heightOfLokumPart) / 2),
 					widthOfLokumPart, heightOfLokumPart, widthOfLokumPart
-							/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, heightOfLokumPart
-							/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
+					/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, heightOfLokumPart
+					/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
 		}
 	}
 
 	@Override
 	public void draw(Graphics g, Board board) {
 		// TODO Auto-generated method stub
-		// drawing lines
-		for (int i = 0; i <= board.getNumOfLokumsInAColumn(); i++) {
-			g.drawLine(0,
-					i * board.getHeight() / board.getNumOfLokumsInAColumn(),
-					board.getWidth(),
-					i * board.getHeight() / board.getNumOfLokumsInAColumn());
-		}
-		for (int i = 0; i <= board.getNumOfLokumsInARow(); i++) {
-			g.drawLine(i * board.getWidth() / board.getNumOfLokumsInARow(), 0,
-					i * board.getWidth() / board.getNumOfLokumsInARow(),
-					board.getHeight());
-		}
-		// drawing lokums
 		for (int i = 0; i < board.getNumOfLokumsInAColumn(); i++) {
 			for (int j = 0; j < board.getNumOfLokumsInARow(); j++) {
+				if(board.getLokumArray()[i][j] instanceof Destructible){
+					g.setColor(Color.BLACK);
+					g.drawRect(j*board.getBlockWidth(), i*board.getBlockHeight(), board.getBlockWidth(), board.getBlockHeight());
+				}
 				board.getLokumArray()[i][j].draw(g);
 			}
 		}

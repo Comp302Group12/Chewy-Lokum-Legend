@@ -2,7 +2,7 @@ import java.awt.Color;
 
 public abstract class Lokum implements Drawable {
 
-	public static final Color[] lokumColors = { Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.PINK, Color.BLACK };
+	public static final Color[] lokumColors = { Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.PINK };
 	private Color color;
 	private int x;
 	private int y;

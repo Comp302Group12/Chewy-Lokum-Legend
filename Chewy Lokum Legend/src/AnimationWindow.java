@@ -14,18 +14,18 @@ import javax.swing.Timer;
 public class AnimationWindow extends JPanel {
 	int width;
 	int height;
-	GamePlay game;
+	Level level;
 	private AnimationEventListener eventListener;
 	private Timer timer;
 	private boolean mode;
 
-	public AnimationWindow(int width, int height) {
+	public AnimationWindow(int width, int height, Level level) {
 		// TODO Auto-generated constructor stub
 		super();		
 		this.width = width;
 		this.height = height;
 		setSize(width, height);
-		game = new GamePlay(width-1, height-1);
+		this.level = level;//new GamePlay(width-1, height-1);
 		eventListener = new AnimationEventListener();
 		// The first parameter is how often (in milliseconds) the timer
 		// should call us back. 50 milliseconds = 20 frames/second
@@ -44,7 +44,7 @@ public class AnimationWindow extends JPanel {
 	protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
-		game.board.draw(g);
+		level.board.draw(g);
 		//System.out.println(getWidth());
 		//System.out.println(getHeight());
 	}
@@ -87,8 +87,8 @@ public class AnimationWindow extends JPanel {
 			// TODO Auto-generated method stub
 			x = e.getX();
 			y = e.getY();
-			if(game.board.lokumAtPosition(x, y)!=null) {
-				game.selectedLokum1 = game.board.lokumAtPosition(x, y);
+			if(level.board.lokumAtPosition(x, y)!=null) {
+				level.gamePlay.selectedLokum1 = level.board.lokumAtPosition(x, y);
 			}
 			//System.out.println("When mouse is pressed x of lokum of game: "+game.selectedLokum1.getX());
 			//System.out.println("When mouse is pressed x of lokum of board: "+game.board.lokumAtPosition(x, y).getX());
@@ -98,14 +98,15 @@ public class AnimationWindow extends JPanel {
 			int dx = e.getX() - x;
 			int dy = e.getY() - y;
 
-			game.selectedLokum1.setX(game.selectedLokum1.getX()+dx);
-			game.selectedLokum1.setY(game.selectedLokum1.getY()+dy);
+			if(level.gamePlay.selectedLokum1 instanceof Movable) {
+				((Movable)level.gamePlay.selectedLokum1).move(dx, dy);
+			}
 			x += dx;
 			y += dy;
 		}
 
 		public void keyReleased(KeyEvent e) {
-			game.selectedLokum1 = null;
+			level.gamePlay.selectedLokum1 = null;
 		}
 
 		public void mouseMoved(MouseEvent e) {

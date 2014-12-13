@@ -1,7 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class NormalLokum extends Lokum {
+public class NormalLokum extends Lokum implements Movable, Destructible {
 
 	public NormalLokum() {
 		// TODO Auto-generated constructor stub
@@ -17,6 +17,13 @@ public class NormalLokum extends Lokum {
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
 		AdapterManager.getInstance().getCurrentDrawingAdapter().draw(g, this);
+	}
+
+	@Override
+	public void move(int x, int y) {
+		// TODO Auto-generated method stub
+		setX(getX()+x);
+		setY(getY()+y);
 	}
 	
 }

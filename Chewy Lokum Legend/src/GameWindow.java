@@ -14,7 +14,7 @@ public class GameWindow extends JPanel {
 
 		setLayout(null);
 
-		animationWindow = new AnimationWindow(431, 431);
+		animationWindow = new AnimationWindow(431, 431, new Level1());
 		setLocation(0, 0);
 
 		add(animationWindow);
