@@ -29,26 +29,7 @@ public class StripedLokum extends Lokum {
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-		if (isHorizontal) {
-			int heightOfLokumPart = getHeight() / 5;
-			g.setColor(getColor());
-			g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), getWidth()
-					/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, getHeight() / ROUND_RECT_ARC_CONS_FOR_LOKUMS);
-			g.setColor(Color.WHITE);
-			g.fillRect(getX(), getY() + heightOfLokumPart, getWidth(),
-					heightOfLokumPart);
-			g.fillRect(getX(), getY() + 3 * heightOfLokumPart, getWidth(),
-					heightOfLokumPart);
-		} else {
-			int widthOfLokumPart = getWidth() / 5;
-			g.setColor(getColor());
-			g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), getWidth()
-					/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, getHeight() / ROUND_RECT_ARC_CONS_FOR_LOKUMS);
-			g.setColor(Color.WHITE);
-			g.fillRect(getX() + widthOfLokumPart, getY(), widthOfLokumPart,
-					getHeight());
-			g.fillRect(getX() + 3 * widthOfLokumPart, getY(), widthOfLokumPart,
-					getHeight());
-		}
+		AdapterManager.getInstance().getCurrentDrawingAdapter().draw(g, this);
 	}
+	
 }

@@ -12,3 +12,7 @@
 /LevelSelectionWindow.class
 /GameWindow.class
 /PauseGameWindow.class
+/DrawingAdapter.class
+/SwingPaintDrawingAdapter.class
+/SimpleGraphicsDrawingAdapter.class
+/AdapterManager.class

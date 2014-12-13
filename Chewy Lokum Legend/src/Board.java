@@ -3,8 +3,8 @@ import java.awt.Graphics;
 import java.util.Random;
 
 public class Board implements Drawable {
-	private int boardWidth;
-	private int boardHeight;
+	private int width;
+	private int height;
 	private int numOfLokumsInAColumn;
 	private int numOfLokumsInARow;
 	private Lokum[][] lokumArray;
@@ -12,32 +12,32 @@ public class Board implements Drawable {
 	int lokumWidth;
 	int lokumHeight;
 
-	Board(int boardWidth, int boardHeight, int numOfLokumsInAColumn, int numOfLokumsInARow) {
+	Board(int width, int height, int numOfLokumsInAColumn, int numOfLokumsInARow) {
 		// TODO Auto-generated constructor stub
-		this.boardWidth = boardWidth;
-		this.boardHeight = boardHeight;
+		this.width = width;
+		this.height = height;
 		this.numOfLokumsInAColumn = numOfLokumsInAColumn;
 		this.numOfLokumsInARow = numOfLokumsInARow;
 		lokumArray = new Lokum[numOfLokumsInAColumn][numOfLokumsInARow];
-		lokumWidth = boardWidth/numOfLokumsInARow*4/5;
-		lokumHeight = boardHeight/numOfLokumsInAColumn*4/5;
+		lokumWidth = width/numOfLokumsInARow*4/5;
+		lokumHeight = height/numOfLokumsInAColumn*4/5;
 		fillBoardRandomly();
 	}
 
-	public int getBoardWidth() {
-		return boardWidth;
+	public int getWidth() {
+		return width;
 	}
 
-	public void setBoardWidth(int boardWidth) {
-		this.boardWidth = boardWidth;
+	public void setWidth(int width) {
+		this.width = width;
 	}
 
-	public int getBoardHeight() {
-		return boardHeight;
+	public int getHeight() {
+		return height;
 	}
 
-	public void setBoardHeight(int boardHeight) {
-		this.boardHeight = boardHeight;
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
 	public int getNumOfLokumsInAColumn() {
@@ -67,8 +67,8 @@ public class Board implements Drawable {
 	public void fillBoardRandomly() {
 		for(int i=0; i<numOfLokumsInAColumn; i++){
 			for(int j=0; j<numOfLokumsInARow; j++){
-				int x = (int) ((j*boardWidth/numOfLokumsInARow)+(boardWidth/numOfLokumsInARow-lokumWidth)/2);
-				int y = (int) ((i*boardHeight/numOfLokumsInAColumn)+(boardHeight/numOfLokumsInAColumn-lokumHeight)/2);
+				int x = (int) ((j*width/numOfLokumsInARow)+(width/numOfLokumsInARow-lokumWidth)/2);
+				int y = (int) ((i*height/numOfLokumsInAColumn)+(height/numOfLokumsInAColumn-lokumHeight)/2);
 				lokumArray[i][j] = createRandomNormalLokum(x, y);
 			}
 		}
@@ -98,26 +98,7 @@ public class Board implements Drawable {
 	}
 
 	public void draw(Graphics g) {
-		drawLines(g);
-		drawLokums(g);
-	}
-
-	public void drawLines(Graphics g) {
-		for (int i = 0; i <= numOfLokumsInAColumn; i++) {
-			g.drawLine(0, i * boardHeight / numOfLokumsInAColumn, boardWidth, i	* boardHeight / numOfLokumsInAColumn);
-		}
-		for (int i = 0; i <= numOfLokumsInARow; i++) {
-			g.drawLine(i * boardWidth / numOfLokumsInARow, 0, i * boardWidth
-					/ numOfLokumsInARow, boardHeight);
-		}
-	}
-
-	public void drawLokums(Graphics g) {
-		for(int i=0; i<numOfLokumsInAColumn; i++){
-			for(int j=0; j<numOfLokumsInARow; j++){
-				lokumArray[i][j].draw(g);
-			}
-		}
+		AdapterManager.getInstance().getCurrentDrawingAdapter().draw(g, this);
 	}
 
 }

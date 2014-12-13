@@ -17,6 +17,7 @@ public class EmptySpace extends Lokum {
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
+		AdapterManager.getInstance().getCurrentDrawingAdapter().draw(g, this);
 	}
 
 }

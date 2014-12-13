@@ -16,12 +16,7 @@ public class NormalLokum extends Lokum {
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-		g.setColor(getColor());
-		g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), getWidth()
-				/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, getHeight() / ROUND_RECT_ARC_CONS_FOR_LOKUMS);
+		AdapterManager.getInstance().getCurrentDrawingAdapter().draw(g, this);
 	}
 	
-	public void explode() {
-		new NormalLokum();
-	}
 }

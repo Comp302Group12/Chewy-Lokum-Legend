@@ -17,17 +17,7 @@ public class WrappedLokum extends Lokum {
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-		Color colorOfOuterPart = Color.LIGHT_GRAY;
-		//Color colorOfOuterPart = new Color(getColor().getRed(), getColor()
-		//	.getGreen(), getColor().getBlue(), 128);
-		g.setColor(colorOfOuterPart);
-		g.fillRoundRect(getX(), getY(), getWidth(), getHeight(), getWidth()
-				/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, getHeight() / ROUND_RECT_ARC_CONS_FOR_LOKUMS);
-		g.setColor(getColor());
-		g.fillOval((getX() + (getWidth() - getWidth() * 3 / 5) / 2),
-				(getY() + (getHeight() - getHeight() * 3 / 5) / 2),
-				getWidth() * 3 / 5, getHeight() * 3 / 5);
-
+		AdapterManager.getInstance().getCurrentDrawingAdapter().draw(g, this);
 	}
 
 }
