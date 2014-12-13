@@ -56,6 +56,7 @@ public class ApplicationWindow extends JFrame {
 
 		((AbstractButton) levelSelectionWindow.levelPanels.get(0).getComponent(0)).addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				gameWindow.newLevelSelected(new Level1());
 				levelSelectionWindow.setVisible(false);
 				gameWindow.setVisible(true);
 			}
@@ -63,6 +64,7 @@ public class ApplicationWindow extends JFrame {
 
 		((AbstractButton) levelSelectionWindow.levelPanels.get(1).getComponent(0)).addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				gameWindow.newLevelSelected(new Level2());
 				levelSelectionWindow.setVisible(false);
 				gameWindow.setVisible(true);
 			}

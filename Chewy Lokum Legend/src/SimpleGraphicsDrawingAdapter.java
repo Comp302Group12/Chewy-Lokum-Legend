@@ -100,7 +100,7 @@ public class SimpleGraphicsDrawingAdapter extends DrawingAdapter {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < board.getNumOfLokumsInAColumn(); i++) {
 			for (int j = 0; j < board.getNumOfLokumsInARow(); j++) {
-				if(board.getLokumArray()[i][j] instanceof Destructible){
+				if(board.getLokumArray()[i][j] instanceof Movable){
 					g.setColor(Color.BLACK);
 					g.drawRect(j*board.getBlockWidth(), i*board.getBlockHeight(), board.getBlockWidth(), board.getBlockHeight());
 				}

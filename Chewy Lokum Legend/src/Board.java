@@ -127,7 +127,7 @@ public class Board implements Drawable {
 		Lokum lokum = null;
 		try {
 			lokum = (Lokum) Class.forName(typeOfLokum).newInstance();
-			if(lokum instanceof Destructible) {
+			if(lokum instanceof Movable) {
 				int x = (j*blockWidth)+(blockWidth-lokumWidth)/2;
 				int y = (i*blockHeight)+(blockHeight-lokumHeight)/2;
 				lokum.setColor(randomColor);
