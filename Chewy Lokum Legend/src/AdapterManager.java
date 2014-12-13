@@ -1,8 +1,8 @@
 
 public class AdapterManager {
 
-	private DrawingAdapter currentDrawingAdapter;
 	private static AdapterManager instance;
+	private DrawingAdapter currentDrawingAdapter;
 
 	public static AdapterManager getInstance(){
 		if (instance == null) {
@@ -19,5 +19,5 @@ public class AdapterManager {
 	public DrawingAdapter getCurrentDrawingAdapter() {
 		return currentDrawingAdapter;
 	}
-
+	
 }

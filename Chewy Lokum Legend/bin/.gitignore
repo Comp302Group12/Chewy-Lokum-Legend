@@ -16,3 +16,6 @@
 /SwingPaintDrawingAdapter.class
 /SimpleGraphicsDrawingAdapter.class
 /AdapterManager.class
+/ObjectiveAdapter.class
+/MoveBasedObjectiveAdapter.class
+/TimeBasedObjectiveAdapter.class
