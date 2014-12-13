@@ -8,3 +8,7 @@
 /ApplicationWindow$6.class
 /ApplicationWindow$7.class
 /Drawable.class
+/MenuWindow.class
+/LevelSelectionWindow.class
+/GameWindow.class
+/PauseGameWindow.class
