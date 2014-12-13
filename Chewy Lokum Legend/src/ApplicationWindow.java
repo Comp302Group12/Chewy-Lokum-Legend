@@ -115,25 +115,16 @@ public class ApplicationWindow extends JFrame {
 
 		gameWindow.setLayout(null);
 
-		AnimationWindow animationWindow = new AnimationWindow();
-		animationWindow.setBounds(0, 0, 431, 431);
+		AnimationWindow animationWindow = new AnimationWindow(431, 431);
+		animationWindow.setLocation(0, 0);
 
 		gameWindow.add(animationWindow);
 		
-		JLabel goalScoreLabel = new JLabel("Goal Score:");
-		goalScoreLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		goalScoreLabel.setBounds(441, 110, 165, 35);
-		gameWindow.add(goalScoreLabel);
-
-		JLabel scoreLabel = new JLabel("Score:");
-		scoreLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		scoreLabel.setBounds(441, 155, 165, 35);
-		gameWindow.add(scoreLabel);
-
-		JLabel remainingMovesLabel = new JLabel("Remaining Moves:");
-		remainingMovesLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		remainingMovesLabel.setBounds(441, 200, 165, 35);
-		gameWindow.add(remainingMovesLabel);
+		InformationWindow informationWindow = new InformationWindow(180, 120);
+		informationWindow.setLocation(441, 0);
+		
+		
+		gameWindow.add(informationWindow);
 
 		JButton pauseGameButton = new JButton("Pause Game");
 		pauseGameButton.addActionListener(new ActionListener() {
@@ -142,9 +133,8 @@ public class ApplicationWindow extends JFrame {
 				pauseGameWindow.setVisible(true);
 			}
 		});
-		pauseGameButton.setBounds(451, 250, 122, 35);
+		pauseGameButton.setBounds(461, 130, 120, 35);
 		gameWindow.add(pauseGameButton);
-
 		// ////////////////////////////////////////////////////////
 		pauseGameWindow = new JPanel();
 		contentPane.add(pauseGameWindow, "name_44933427952662");

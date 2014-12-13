@@ -11,15 +11,20 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class AnimationWindow extends JPanel {
+	int width;
+	int height;
 	GamePlay game;
 	private AnimationEventListener eventListener;
 	private Timer timer;
 	private boolean mode;
 
-	public AnimationWindow() {
+	public AnimationWindow(int width, int height) {
 		// TODO Auto-generated constructor stub
-		super();
-		game = new GamePlay();
+		super();		
+		this.width = width;
+		this.height = height;
+		setSize(width, height);
+		game = new GamePlay(width-1, height-1);
 		eventListener = new AnimationEventListener();
 		// The first parameter is how often (in milliseconds) the timer
 		// should call us back. 50 milliseconds = 20 frames/second

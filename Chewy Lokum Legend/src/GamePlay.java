@@ -5,9 +5,9 @@ public class GamePlay {
 	
 	Board board;
 	
-	public GamePlay() {
+	public GamePlay(int width, int height) {
 		// TODO Auto-generated constructor stub
-		board = new Board(430, 430, 8, 8);
+		board = new Board(width, height, 8, 8);
 	}
 	
 	/*public void selectLokum(int x, int y) {
