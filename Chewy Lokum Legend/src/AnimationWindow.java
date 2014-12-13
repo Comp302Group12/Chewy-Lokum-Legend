@@ -10,6 +10,7 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class AnimationWindow extends JPanel {
 	int width;
 	int height;
