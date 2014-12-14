@@ -24,9 +24,10 @@ public class MenuWindow extends JPanel {
 	JButton loadGameButton;
 	JButton exitGameButton;
 
-	public MenuWindow() {
+	public MenuWindow(int width, int height) {
 		// TODO Auto-generated constructor stub
 		super();
+		setSize(width, height);
 		setLayout(null);
 
 		gameTitleLabel = new JLabel("Chewy Lokum Legend");

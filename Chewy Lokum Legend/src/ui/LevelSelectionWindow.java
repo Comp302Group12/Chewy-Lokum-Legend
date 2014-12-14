@@ -1,6 +1,10 @@
 package ui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.ComponentOrientation;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -17,15 +21,22 @@ import ui.*;
 public class LevelSelectionWindow extends JPanel {
 
 	int numOfLevels;
-	ArrayList<JPanel> levelPanels;
+	ArrayList<JButton> levelButtons;
 
 	public LevelSelectionWindow(int numOfLevels) {
 		// TODO Auto-generated constructor stub
 		super();
 		this.numOfLevels = numOfLevels;
-		levelPanels = new ArrayList<JPanel>();
-		setLayout(null);
+		levelButtons = new ArrayList<JButton>();
+		//setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		
+		for(int i=0; i<numOfLevels; i++) {
+			JButton levelButton = new JButton("Level "+(i+1));
+			add(levelButton);
+			levelButtons.add(levelButton);
+		}
 
+		/*
 		JPanel level1Panel = new JPanel();
 		level1Panel.setBounds(200, 175, 100, 130);
 		level1Panel.setBackground(Color.BLACK);
@@ -49,6 +60,7 @@ public class LevelSelectionWindow extends JPanel {
 		level2Panel.add(level2Button);
 
 		levelPanels.add(level2Panel);
+		*/
 	}
 
 }

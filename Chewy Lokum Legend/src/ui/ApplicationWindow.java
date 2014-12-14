@@ -3,6 +3,7 @@ package ui;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Constructor;
 
 import javax.swing.AbstractButton;
 import javax.swing.JFrame;
@@ -36,7 +37,7 @@ public class ApplicationWindow extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 
 		////////////////////////////////////////////////////////////////////////
-		menuWindow = new MenuWindow();
+		menuWindow = new MenuWindow(640, 480);
 		contentPane.add(menuWindow, "name_92135036815278");
 
 		menuWindow.startNewGameButton.addActionListener(new ActionListener() {
@@ -59,25 +60,27 @@ public class ApplicationWindow extends JFrame {
 			}
 		});
 
-		// ///////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////
 		levelSelectionWindow = new LevelSelectionWindow(2);
 		contentPane.add(levelSelectionWindow, "name_92176023342318");
 
-		((AbstractButton) levelSelectionWindow.levelPanels.get(0).getComponent(0)).addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				gameWindow.newLevelSelected(new Level1());
-				levelSelectionWindow.setVisible(false);
-				gameWindow.setVisible(true);
-			}
-		});
-
-		((AbstractButton) levelSelectionWindow.levelPanels.get(1).getComponent(0)).addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				gameWindow.newLevelSelected(new Level2());
-				levelSelectionWindow.setVisible(false);
-				gameWindow.setVisible(true);
-			}
-		});		
+		for(int i=0; i<2; i++){
+			String levelName = "model.level.Level"+(i+1);
+			((AbstractButton) levelSelectionWindow.levelButtons.get(i)).addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					try {
+						Level level = (Level) Class.forName(levelName).newInstance();
+						gameWindow.newLevelSelected(level);
+						levelSelectionWindow.setVisible(false);
+						gameWindow.setVisible(true);
+					} catch (InstantiationException | IllegalAccessException
+							| ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			});
+		}
 
 		//////////////////////////////////////////////////////////////////////////////////
 		gameWindow = new GameWindow();
