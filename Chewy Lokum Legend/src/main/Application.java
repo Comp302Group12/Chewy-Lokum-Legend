@@ -1,6 +1,6 @@
 package main;
 import ui.ApplicationWindow;
-
+//app clas
 public class Application {
 
 	public static void main(String[] args) {
@@ -8,4 +8,6 @@ public class Application {
 		frame.setVisible(true);
 	}
 	
+	
+	//deneme
 }
