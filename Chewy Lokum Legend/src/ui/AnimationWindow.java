@@ -90,32 +90,18 @@ public class AnimationWindow extends JPanel {
 		int y;
 
 		public void mouseClicked(MouseEvent e) {
+			x = e.getX();
+			y = e.getY();
+			level.getGamePlay().selectLokum(x, y);			
 		}
 
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			x = e.getX();
-			y = e.getY();
-			if(level.getBoard().lokumAtPosition(x, y)!=null) {
-				level.getGamePlay().selectedLokum1 = level.getBoard().lokumAtPosition(x, y);
-			}
-			//System.out.println("When mouse is pressed x of lokum of game: "+game.selectedLokum1.getX());
-			//System.out.println("When mouse is pressed x of lokum of board: "+game.board.lokumAtPosition(x, y).getX());
 		}
 
 		public void mouseDragged(MouseEvent e) {
-			int dx = e.getX() - x;
-			int dy = e.getY() - y;
-
-			if(level.getGamePlay().selectedLokum1 instanceof Movable) {
-				((Movable)level.getGamePlay().selectedLokum1).move(dx, dy);
-			}
-			x += dx;
-			y += dy;
 		}
 
 		public void keyReleased(KeyEvent e) {
-			level.getGamePlay().selectedLokum1 = null;
 		}
 
 		public void mouseMoved(MouseEvent e) {

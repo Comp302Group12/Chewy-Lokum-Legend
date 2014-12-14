@@ -10,32 +10,30 @@ import ui.*;
 public class GamePlay {
 	public Lokum selectedLokum1;
 	public Lokum selectedLokum2;
-	
+
 	Level level;
-	
+
 	public GamePlay(Level level) {
 		// TODO Auto-generated constructor stub
 		this.level = level;
 	}
-	
-	/*public void selectLokum(int x, int y) {
-		if(selectedLokum1==null) {
-			selectedLokum1 = lokumAtPosition(x, y);
-		} else {
-			selectedLokum2 = lokumAtPosition(x, y);
-			swapSelectedLokums(selectedLokum1, selectedLokum2);
+
+	public void selectLokum(int x, int y) {
+		Lokum clickedLokum = level.getBoard().lokumAtPosition(x, y);
+		if(clickedLokum instanceof Movable && selectedLokum1 == null) {
+			selectedLokum1 = clickedLokum;
+
+		} else if(level.getBoard().lokumAtPosition(x, y) instanceof Movable && selectedLokum2 == null) {
+			selectedLokum2 = level.getBoard().lokumAtPosition(x, y);
+			swapSelectedLokums();
 		}
-	}*/
-	
-	public void swapSelectedLokums(Lokum selectedLokum1, Lokum selectedLokum2) {
+	}
+
+	public void swapSelectedLokums() {
 		// TODO Auto-generated method stub
-		int temp = selectedLokum1.getX();
-		selectedLokum1.setX(selectedLokum2.getX());
-		selectedLokum2.setX(temp);
-		
-		temp = selectedLokum1.getY();
-		selectedLokum1.setY(selectedLokum2.getY());
-		selectedLokum2.setY(temp);
+		level.getBoard().swap(selectedLokum1, selectedLokum2);
+		selectedLokum1 = null;
+		selectedLokum2 = null;
 	}
 
 

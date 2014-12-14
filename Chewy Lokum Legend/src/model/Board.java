@@ -159,6 +159,16 @@ public class Board implements Drawable {
 		}
 		return lokum;
 	}
+	
+	public void swap(Lokum lokum1, Lokum lokum2) {
+		int temp = lokum1.getX();
+		lokum1.setX(lokum2.getX());
+		lokum2.setX(temp);
+		
+		temp = lokum1.getY();
+		lokum1.setY(lokum2.getY());
+		lokum2.setY(temp);
+	}
 
 	public void draw(Graphics g) {
 		AdapterManager.getInstance().getCurrentDrawingAdapter().draw(g, this);
