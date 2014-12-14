@@ -1,5 +1,5 @@
 package main;
-import ui.ApplicationWindow;//anýl
+import ui.ApplicationWindow;
 
 public class Application {
 
