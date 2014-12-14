@@ -18,7 +18,7 @@
       <x>120</x>
       <y>40</y>
       <w>350</w>
-      <h>440</h>
+      <h>480</h>
     </coordinates>
     <panel_attributes>Chewy Lokum Legend
 valign=top</panel_attributes>
@@ -207,5 +207,28 @@ bg=white</panel_attributes>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;200.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>240</x>
+      <y>470</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Special Swap
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>220</y>
+      <w>220</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;200.0;270.0</additional_attributes>
   </element>
 </diagram>
