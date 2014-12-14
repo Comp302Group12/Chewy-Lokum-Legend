@@ -508,7 +508,7 @@ selectLokum(x, y)</panel_attributes>
       <w>288</w>
       <h>112</h>
     </coordinates>
-    <panel_attributes>loop number of remaing moves&gt;0</panel_attributes>
+    <panel_attributes>remaining quantity of level &gt; 0</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
