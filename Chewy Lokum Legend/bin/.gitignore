@@ -28,3 +28,13 @@
 /Obstacle.class
 /Destructible.class
 /Level2.class
+/UI/
+/AnimationWindow$AnimationEventListener.class
+/AnimationWindow.class
+/ApplicationWindow.class
+/Domain/
+/Level/
+/Lokum/
+/model/
+/ui/
+/main/
