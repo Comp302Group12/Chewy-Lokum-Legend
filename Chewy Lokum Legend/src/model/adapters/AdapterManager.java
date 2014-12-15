@@ -1,7 +1,7 @@
-package model.adapter;
+package model.adapters;
 
 import model.*;
-import model.adapter.*;
+import model.adapters.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;
@@ -11,6 +11,7 @@ public class AdapterManager {
 
 	private static AdapterManager instance;
 	private DrawingAdapter currentDrawingAdapter;
+	private LokumSwapperAdapter currentLokumSwapperAdapter;
 
 	public static AdapterManager getInstance(){
 		if (instance == null) {
@@ -22,10 +23,15 @@ public class AdapterManager {
 	private AdapterManager() {
 		// TODO Auto-generated constructor stub
 		currentDrawingAdapter = new SimpleGraphicsDrawingAdapter();
+		currentLokumSwapperAdapter = new RegularLokumSwapperAdapter();
 	}
 
 	public DrawingAdapter getCurrentDrawingAdapter() {
 		return currentDrawingAdapter;
 	}
-	
+
+	public LokumSwapperAdapter getCurrentLokumSwapperAdapter() {
+		return currentLokumSwapperAdapter;
+	}
+
 }

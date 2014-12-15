@@ -1,8 +1,8 @@
-package model.adapter;
+package model.adapters;
 import java.awt.Graphics;
 
 import model.*;
-import model.adapter.*;
+import model.adapters.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;

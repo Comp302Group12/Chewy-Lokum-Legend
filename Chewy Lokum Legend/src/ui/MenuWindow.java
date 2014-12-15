@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import model.*;
-import model.adapter.*;
+import model.adapters.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;

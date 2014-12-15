@@ -1,4 +1,4 @@
-package model;
+package model.adapters;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,16 +6,15 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 import model.*;
-import model.adapter.*;
+import model.adapters.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;
 import ui.*;
 
-public class RegularLokumSwapper implements ActionListener {
+public abstract class LokumSwapperAdapter implements ActionListener {
 
 	Timer timer;
-	Board board;
 	Lokum lokum1;
 	Lokum lokum2;
 	int xOfLokum1AtTheBeg;
@@ -25,43 +24,19 @@ public class RegularLokumSwapper implements ActionListener {
 	int speedOfSwap;
 	boolean isSwapInProgres;
 
-	public boolean isSwapInProgres() {
-		return isSwapInProgres;
-	}
-
-	public RegularLokumSwapper() {
+	public LokumSwapperAdapter() {
 		// TODO Auto-generated constructor stub
 		timer = new Timer(AnimationWindow.getTIMER_DELAY_CONS(), this);
 		speedOfSwap = 10;
 		isSwapInProgres = false;
 	}
 
-	public void swapLokums(Board board, Lokum lokum1, Lokum lokum2) {
-		if(board.areLokumsAdjacent(lokum1, lokum2)){
-			this.board = board;
-			this.lokum1 = lokum1;
-			this.lokum2 = lokum2;
-			xOfLokum1AtTheBeg = lokum1.getX();
-			yOfLokum1AtTheBeg = lokum1.getY();
-			xOfLokum2AtTheBeg = lokum2.getX();
-			yOfLokum2AtTheBeg = lokum2.getY();
-			board.swap(lokum1, lokum2);
-			timer.start();
-			isSwapInProgres = true;
-		}
+	public abstract void swapLokums(GamePlay gamePlay, Lokum lokum1, Lokum lokum2);
+
+	public boolean isSwapInProgres() {
+		return isSwapInProgres;
 	}
 
-	public void cancelSwap() {
-		board.swap(lokum1, lokum2);
-		timer.stop();
-		lokum1 = null;
-		lokum2 = null;
-		xOfLokum1AtTheBeg = 0;
-		yOfLokum1AtTheBeg = 0;
-		xOfLokum2AtTheBeg = 0;
-		yOfLokum2AtTheBeg = 0;
-		isSwapInProgres = false;
-	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

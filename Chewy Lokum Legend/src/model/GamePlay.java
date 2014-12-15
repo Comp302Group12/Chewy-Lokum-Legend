@@ -1,7 +1,7 @@
 package model;
 
 import model.*;
-import model.adapter.*;
+import model.adapters.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;
@@ -11,14 +11,12 @@ public class GamePlay {
 
 	public Lokum selectedLokum1;
 	public Lokum selectedLokum2;
-	Level level;
-	public RegularLokumSwapper rlSwapper;
+	public Level level;
 	boolean isGameModeOn;
 
 	public GamePlay(Level level) {
 		// TODO Auto-generated constructor stub
 		this.level = level;
-		rlSwapper = new RegularLokumSwapper();
 		isGameModeOn = true;
 	}
 
@@ -34,10 +32,7 @@ public class GamePlay {
 	}
 
 	public void swapSelectedLokums() {
-		rlSwapper.swapLokums(level.getBoard(), selectedLokum1, selectedLokum2);
-		if(!doesBoardHaveCombination()) {
-			rlSwapper.cancelSwap();
-		}
+		AdapterManager.getInstance().getCurrentLokumSwapperAdapter().swapLokums(this, selectedLokum1, selectedLokum2);
 		selectedLokum1 = null;
 		selectedLokum2 = null;
 	}
@@ -48,10 +43,10 @@ public class GamePlay {
 
 	public boolean isGameModeOn() {
 		isGameModeOn = true;
-		if(rlSwapper.isSwapInProgres) {
+		if(AdapterManager.getInstance().getCurrentLokumSwapperAdapter().isSwapInProgres()) {
 			isGameModeOn = false;
 		}
 		return isGameModeOn;
 	}
-	
+
 }
