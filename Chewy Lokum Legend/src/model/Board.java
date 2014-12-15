@@ -1,6 +1,7 @@
 package model;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Random;
 
 import model.*;
@@ -118,17 +119,6 @@ public class Board implements Drawable {
 		}
 	}
 
-	public Lokum lokumAtPosition(int x, int y){		
-		for(int i=0; i<numOfLokumsInAColumn; i++) {
-			for(int j=0; j<numOfLokumsInARow; j++) {
-				if(lokumArray[i][j].contains(x, y)) {
-					return lokumArray[i][j];
-				}
-			}
-		}
-		return null;		
-	}
-
 	public Lokum createRandomLokum(String typeOfLokum, int i, int j) {
 		Random rgen = new Random();
 		Color randomColor = Lokum.lokumColors[rgen.nextInt(Lokum.lokumColors.length)];
@@ -159,15 +149,52 @@ public class Board implements Drawable {
 		}
 		return lokum;
 	}
-	
+
+	public int[] detectArrayCoordinatesOfLokumAtPosition(int x, int y) {
+		int[] array = new int[2];
+		for(int i=0; i<numOfLokumsInAColumn; i++) {
+			for(int j=0; j<numOfLokumsInARow; j++) {
+				if(lokumArray[i][j].contains(x, y)) {
+					array[0] = i;
+					array[1] = j;
+					return array;
+				}
+			}
+		}
+		return null;
+	}
+
+	public Lokum lokumAtPosition(int x, int y){		
+		int[] coordinates = detectArrayCoordinatesOfLokumAtPosition(x, y);
+		if(coordinates != null) {
+			return lokumArray[coordinates[0]][coordinates[1]];
+		}
+		return null;		
+	}
+
 	public void swap(Lokum lokum1, Lokum lokum2) {
-		int temp = lokum1.getX();
-		lokum1.setX(lokum2.getX());
-		lokum2.setX(temp);
-		
-		temp = lokum1.getY();
-		lokum1.setY(lokum2.getY());
-		lokum2.setY(temp);
+		int[] arrayCoordinatesOfLokum1 = detectArrayCoordinatesOfLokumAtPosition(lokum1.getX(), lokum1.getY());
+		int[] arrayCoordinatesOfLokum2 = detectArrayCoordinatesOfLokumAtPosition(lokum2.getX(), lokum2.getY());
+		Lokum temp = lokum1;
+		lokumArray[arrayCoordinatesOfLokum1[0]][arrayCoordinatesOfLokum1[1]] = lokum2;
+		lokumArray[arrayCoordinatesOfLokum2[0]][arrayCoordinatesOfLokum2[1]] = temp;
+	}
+
+	public boolean areLokumsAdjacent(Lokum lokum1, Lokum lokum2) {
+		int[] arrayCoordinatesOfLokum1 = detectArrayCoordinatesOfLokumAtPosition(lokum1.getX(), lokum1.getY());
+		int[] arrayCoordinatesOfLokum2 = detectArrayCoordinatesOfLokumAtPosition(lokum2.getX(), lokum2.getY());
+		int x1 = arrayCoordinatesOfLokum1[0];
+		int y1 = arrayCoordinatesOfLokum1[1];
+		int x2 = arrayCoordinatesOfLokum2[0];
+		int y2 = arrayCoordinatesOfLokum2[1];
+		if( ((x1-1 == x2) && (y1 == y2))
+				|| ((x1+1 == x2) && (y1 == y2))
+				|| ((x1 == x2) && (y1-1 == y2))
+				|| ((x1 == x2) && (y1+1 == y2))) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public void draw(Graphics g) {

@@ -21,6 +21,9 @@ import ui.*;
 
 @SuppressWarnings("serial")
 public class AnimationWindow extends JPanel {
+
+	private static int TIMER_DELAY_CONS = 16;
+
 	int width;
 	int height;
 	Level level;
@@ -34,15 +37,14 @@ public class AnimationWindow extends JPanel {
 		this.width = width;
 		this.height = height;
 		setSize(width, height);
-		this.level = level;//new GamePlay(width-1, height-1);
+		this.level = level;
 		eventListener = new AnimationEventListener();
 		// The first parameter is how often (in milliseconds) the timer
 		// should call us back. 50 milliseconds = 20 frames/second
 
-		timer = new Timer(50, eventListener);
+		timer = new Timer(TIMER_DELAY_CONS, eventListener);
 		addMouseListener(eventListener);
 		addMouseMotionListener(eventListener);
-		addKeyListener(eventListener);
 		requestFocus(); // make sure keyboard is directed to us
 		timer.start();
 
@@ -66,7 +68,6 @@ public class AnimationWindow extends JPanel {
 			// we're about to change mode: turn off all the old listeners
 			removeMouseListener(eventListener);
 			removeMouseMotionListener(eventListener);
-			removeKeyListener(eventListener);
 		}
 
 		mode = m;
@@ -75,7 +76,6 @@ public class AnimationWindow extends JPanel {
 			// the mode is true: turn on the listeners
 			addMouseListener(eventListener);
 			addMouseMotionListener(eventListener);
-			addKeyListener(eventListener);
 			requestFocus(); // make sure keyboard is directed to us
 			timer.start();
 		} else {
@@ -83,34 +83,27 @@ public class AnimationWindow extends JPanel {
 		}
 	}
 
+	public static int getTIMER_DELAY_CONS() {
+		return TIMER_DELAY_CONS;
+	}
+
 	class AnimationEventListener extends MouseAdapter implements
-	MouseMotionListener, KeyListener, ActionListener {
+	MouseMotionListener, ActionListener {
 
-		int x;
-		int y;
-
-		public void mouseClicked(MouseEvent e) {
-			x = e.getX();
-			y = e.getY();
-			level.getGamePlay().selectLokum(x, y);			
-		}
-
+		@Override
 		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			if (level.getGamePlay().isGameModeOn()) {
+				level.getGamePlay().selectLokum(e.getX(), e.getY());				
+			}
 		}
 
-		public void mouseDragged(MouseEvent e) {
-		}
-
-		public void keyReleased(KeyEvent e) {
-		}
-
-		public void mouseMoved(MouseEvent e) {
-		}
-
-		public void keyPressed(KeyEvent e) {
-		}
-
-		public void keyTyped(KeyEvent e) {
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			if (level.getGamePlay().isGameModeOn()) {
+				level.getGamePlay().selectLokum(e.getX(), e.getY());				
+			}
 		}
 
 		public void actionPerformed(ActionEvent e) {
