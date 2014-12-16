@@ -183,14 +183,17 @@ public class Board implements Drawable {
 	public boolean areLokumsAdjacent(Lokum lokum1, Lokum lokum2) {
 		int[] arrayCoordinatesOfLokum1 = detectArrayCoordinatesOfLokumAtPosition(lokum1.getX(), lokum1.getY());
 		int[] arrayCoordinatesOfLokum2 = detectArrayCoordinatesOfLokumAtPosition(lokum2.getX(), lokum2.getY());
-		int x1 = arrayCoordinatesOfLokum1[0];
-		int y1 = arrayCoordinatesOfLokum1[1];
-		int x2 = arrayCoordinatesOfLokum2[0];
-		int y2 = arrayCoordinatesOfLokum2[1];
-		if( ((x1-1 == x2) && (y1 == y2))
-				|| ((x1+1 == x2) && (y1 == y2))
-				|| ((x1 == x2) && (y1-1 == y2))
-				|| ((x1 == x2) && (y1+1 == y2))) {
+		int i1 = arrayCoordinatesOfLokum1[0];
+		int j1 = arrayCoordinatesOfLokum1[1];
+		int i2 = arrayCoordinatesOfLokum2[0];
+		int j2 = arrayCoordinatesOfLokum2[1];
+		if(((i1-1 == i2) && (j1 == j2)) //is lokum2 at the top of lokum1?
+				|| ((i1+1 == i2) && (j1 == j2)) //is lokum2 is at the bottom of lokum1?
+				|| ((i1 == i2) && (j1-1 == j2)) //is lokum2 at the left of lokum1?
+				|| ((i1 == i2) && (j1+1 == j2)) //is lokum2 at the right of lokum1?
+				|| ((i1-1 == i2) && (j1-1 == j2 || j1+1 == j2)) //is lokum2 at the upper cross of lokum1?
+				|| ((i1+1 == i2) && (j1-1 == j2 || j1+1 == j2)) //is lokum2 at the lower cross of lokum1?
+				) {
 			return true;
 		} else {
 			return false;

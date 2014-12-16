@@ -12,7 +12,7 @@ public class GamePlay {
 	public Lokum selectedLokum1;
 	public Lokum selectedLokum2;
 	public Level level;
-	boolean isGameModeOn;
+	private boolean isGameModeOn;
 
 	public GamePlay(Level level) {
 		// TODO Auto-generated constructor stub
@@ -20,33 +20,53 @@ public class GamePlay {
 		isGameModeOn = true;
 	}
 
-	public void selectLokum(int x, int y) {
-		Lokum clickedLokum = level.getBoard().lokumAtPosition(x, y);
-		if(clickedLokum instanceof Movable && selectedLokum1 == null) {
-			selectedLokum1 = clickedLokum;
+	public void selectLokum1(int x, int y) {
+		if(checkGameMode()){
+			selectedLokum1 = level.getBoard().lokumAtPosition(x, y);
+		}
+	}
 
-		} else if(level.getBoard().lokumAtPosition(x, y) instanceof Movable && selectedLokum2 == null) {
-			selectedLokum2 = level.getBoard().lokumAtPosition(x, y);
-			swapSelectedLokums();
+	public void selectLokum2(int x, int y) {
+		if(checkGameMode()){
+			Lokum chosenLokum = level.getBoard().lokumAtPosition(x, y);
+			if(selectedLokum2 == null && selectedLokum1 != null && chosenLokum != selectedLokum1) {
+				selectedLokum2 = chosenLokum;
+				swapSelectedLokums();
+			} else {
+				resetSelectedLokums();
+			}
 		}
 	}
 
 	public void swapSelectedLokums() {
 		AdapterManager.getInstance().getCurrentLokumSwapperAdapter().swapLokums(this, selectedLokum1, selectedLokum2);
+		resetSelectedLokums();
+	}
+
+	public void resetSelectedLokums() {
 		selectedLokum1 = null;
 		selectedLokum2 = null;
 	}
 
 	public boolean doesBoardHaveCombination() {
-		return true;
+		return false;
 	}
 
-	public boolean isGameModeOn() {
+	public boolean checkGameMode() {
 		isGameModeOn = true;
 		if(AdapterManager.getInstance().getCurrentLokumSwapperAdapter().isSwapInProgres()) {
 			isGameModeOn = false;
 		}
 		return isGameModeOn;
+	}
+
+	public void update() {
+		if(!checkGameMode()) {
+			System.out.println("Hazýr deðil!!!");
+		} else {
+			//System.out.println("Hazýr!!!");
+		}
+
 	}
 
 }

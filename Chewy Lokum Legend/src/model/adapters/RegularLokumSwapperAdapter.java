@@ -14,22 +14,41 @@ import ui.*;
 
 public class RegularLokumSwapperAdapter extends LokumSwapperAdapter {
 
-	public void swapLokums(GamePlay gamePlay, Lokum lokum1, Lokum lokum2) {
-		if(gamePlay.level.getBoard().areLokumsAdjacent(lokum1, lokum2)){
-			gamePlay.level.getBoard().swap(lokum1, lokum2);
-			if(gamePlay.doesBoardHaveCombination()) {
-				this.lokum1 = lokum1;
-				this.lokum2 = lokum2;
-				xOfLokum1AtTheBeg = lokum1.getX();
-				yOfLokum1AtTheBeg = lokum1.getY();
-				xOfLokum2AtTheBeg = lokum2.getX();
-				yOfLokum2AtTheBeg = lokum2.getY();
-				timer.start();
-				isSwapInProgres = true;
+	private boolean isSwapBackInProgress;
+
+	public RegularLokumSwapperAdapter() {
+		// TODO Auto-generated constructor stub
+		isSwapBackInProgress = false;
+	}
+
+	@Override
+	public boolean checkConditions() {
+		// TODO Auto-generated method stub
+		return gamePlay.level.getBoard().areLokumsAdjacent(lokum1, lokum2);
+	}
+
+	@Override
+	public void doBeforeSwapIsStarted() {
+		// TODO Auto-generated method stub
+		gamePlay.level.getBoard().swap(lokum1, lokum2);
+	}
+
+	@Override
+	public void doAfterSwapIsEnded() {
+		// TODO Auto-generated method stub
+		if(!gamePlay.doesBoardHaveCombination()) {
+			if(isSwapBackInProgress) {
+				isSwapBackInProgress = false;
 			} else {
-				gamePlay.level.getBoard().swap(lokum1, lokum2);
+				swapBack();
 			}
 		}
 	}
+
+	public void swapBack() {
+		isSwapBackInProgress = true;
+		swapLokums(gamePlay, lokum1, lokum2);
+	}
+
 
 }

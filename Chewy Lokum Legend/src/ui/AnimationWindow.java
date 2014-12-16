@@ -39,13 +39,9 @@ public class AnimationWindow extends JPanel {
 		setSize(width, height);
 		this.level = level;
 		eventListener = new AnimationEventListener();
-		// The first parameter is how often (in milliseconds) the timer
-		// should call us back. 50 milliseconds = 20 frames/second
-
 		timer = new Timer(TIMER_DELAY_CONS, eventListener);
 		addMouseListener(eventListener);
 		addMouseMotionListener(eventListener);
-		requestFocus(); // make sure keyboard is directed to us
 		timer.start();
 
 		//mode = false;
@@ -56,31 +52,6 @@ public class AnimationWindow extends JPanel {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		level.getBoard().draw(g);
-		//System.out.println(getWidth());
-		//System.out.println(getHeight());
-	}
-
-	public void setMode(boolean m) {
-		// modifies: this
-		// effects: changes the mode to <m>.
-
-		if (mode == true) {
-			// we're about to change mode: turn off all the old listeners
-			removeMouseListener(eventListener);
-			removeMouseMotionListener(eventListener);
-		}
-
-		mode = m;
-
-		if (mode == true) {
-			// the mode is true: turn on the listeners
-			addMouseListener(eventListener);
-			addMouseMotionListener(eventListener);
-			requestFocus(); // make sure keyboard is directed to us
-			timer.start();
-		} else {
-			timer.stop();
-		}
 	}
 
 	public static int getTIMER_DELAY_CONS() {
@@ -93,20 +64,21 @@ public class AnimationWindow extends JPanel {
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			if (level.getGamePlay().isGameModeOn()) {
-				level.getGamePlay().selectLokum(e.getX(), e.getY());				
+			if(level.getBoard().lokumAtPosition(e.getX(), e.getY()) instanceof Movable) {
+				level.getGamePlay().selectLokum1(e.getX(), e.getY());
 			}
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			if (level.getGamePlay().isGameModeOn()) {
-				level.getGamePlay().selectLokum(e.getX(), e.getY());				
+			if(level.getBoard().lokumAtPosition(e.getX(), e.getY()) instanceof Movable) {
+				level.getGamePlay().selectLokum2(e.getX(), e.getY());
 			}
 		}
 
 		public void actionPerformed(ActionEvent e) {
+			level.getGamePlay().update();
 			repaint();
 		}
 	}
