@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import model.*;
-import model.adapters.*;
+import model.adapter.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;
@@ -26,18 +26,18 @@ public class AnimationWindow extends JPanel {
 
 	int width;
 	int height;
-	Level level;
+	GamePlay gamePlay;
 	private AnimationEventListener eventListener;
 	private Timer timer;
 	private boolean mode;
 
-	public AnimationWindow(int width, int height, Level level) {
+	public AnimationWindow(int width, int height, GamePlay gamePlay) {
 		// TODO Auto-generated constructor stub
 		super();		
 		this.width = width;
 		this.height = height;
 		setSize(width, height);
-		this.level = level;
+		this.gamePlay = gamePlay;
 		eventListener = new AnimationEventListener();
 		timer = new Timer(TIMER_DELAY_CONS, eventListener);
 		addMouseListener(eventListener);
@@ -51,7 +51,7 @@ public class AnimationWindow extends JPanel {
 	protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
-		level.getBoard().draw(g);
+		gamePlay.getBoard().draw(g);
 	}
 
 	public static int getTIMER_DELAY_CONS() {
@@ -64,21 +64,21 @@ public class AnimationWindow extends JPanel {
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			if(level.getBoard().lokumAtPosition(e.getX(), e.getY()) instanceof Movable) {
-				level.getGamePlay().selectLokum1(e.getX(), e.getY());
+			if(gamePlay.getBoard().lokumAtPosition(e.getX(), e.getY()) instanceof Movable) {
+				gamePlay.selectLokum1(e.getX(), e.getY());
 			}
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			if(level.getBoard().lokumAtPosition(e.getX(), e.getY()) instanceof Movable) {
-				level.getGamePlay().selectLokum2(e.getX(), e.getY());
+			if(gamePlay.getBoard().lokumAtPosition(e.getX(), e.getY()) instanceof Movable) {
+				gamePlay.selectLokum2(e.getX(), e.getY());
 			}
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			level.getGamePlay().update();
+			gamePlay.update();
 			repaint();
 		}
 	}

@@ -1,4 +1,4 @@
-package model.adapters;
+package model.adapter;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 import model.*;
-import model.adapters.*;
+import model.adapter.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;
@@ -14,10 +14,10 @@ import ui.*;
 
 public abstract class LokumSwapperAdapter implements ActionListener {
 
-	Timer timer;
 	GamePlay gamePlay;
 	Lokum lokum1;
 	Lokum lokum2;
+	Timer timer;
 	int xOfLokum1AtTheBeg;
 	int yOfLokum1AtTheBeg;
 	int xOfLokum2AtTheBeg;

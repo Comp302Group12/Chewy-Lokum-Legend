@@ -1,7 +1,7 @@
 package model;
 
 import model.*;
-import model.adapters.*;
+import model.adapter.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;
@@ -11,24 +11,28 @@ public class GamePlay {
 
 	public Lokum selectedLokum1;
 	public Lokum selectedLokum2;
-	public Level level;
+	public Board board;
 	private boolean isGameModeOn;
 
-	public GamePlay(Level level) {
+	public GamePlay(Board board) {
 		// TODO Auto-generated constructor stub
-		this.level = level;
+		this.board = board;
 		isGameModeOn = true;
+	}
+	
+	public Board getBoard() {
+		return board;
 	}
 
 	public void selectLokum1(int x, int y) {
 		if(checkGameMode()){
-			selectedLokum1 = level.getBoard().lokumAtPosition(x, y);
+			selectedLokum1 = board.lokumAtPosition(x, y);
 		}
 	}
 
 	public void selectLokum2(int x, int y) {
 		if(checkGameMode()){
-			Lokum chosenLokum = level.getBoard().lokumAtPosition(x, y);
+			Lokum chosenLokum = board.lokumAtPosition(x, y);
 			if(selectedLokum2 == null && selectedLokum1 != null && chosenLokum != selectedLokum1) {
 				selectedLokum2 = chosenLokum;
 				swapSelectedLokums();
@@ -49,7 +53,7 @@ public class GamePlay {
 	}
 
 	public boolean doesBoardHaveCombination() {
-		return false;
+		return true;
 	}
 
 	public boolean checkGameMode() {
@@ -61,12 +65,13 @@ public class GamePlay {
 	}
 
 	public void update() {
+		/*
 		if(!checkGameMode()) {
 			System.out.println("Hazýr deðil!!!");
 		} else {
-			//System.out.println("Hazýr!!!");
+			System.out.println("Hazýr!!!");
 		}
-
+		 */
 	}
 
 }

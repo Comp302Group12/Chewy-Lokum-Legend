@@ -1,4 +1,4 @@
-package model.adapters;
+package model.adapter;
 
 import java.awt.event.ActionEvent;
 
@@ -35,7 +35,7 @@ public class SpecialLokumSwapperAdapter extends LokumSwapperAdapter {
 	public void doBeforeSwapIsStarted() {
 		// TODO Auto-generated method stub
 		numOfRemainingSpecialSwaps--;
-		gamePlay.level.getBoard().swap(lokum1, lokum2);
+		gamePlay.getBoard().swap(lokum1, lokum2);
 	}
 
 	@Override

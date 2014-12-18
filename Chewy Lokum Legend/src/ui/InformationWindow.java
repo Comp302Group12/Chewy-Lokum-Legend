@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.*;
-import model.adapters.*;
+import model.adapter.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;

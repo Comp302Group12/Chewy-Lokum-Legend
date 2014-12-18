@@ -4,7 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.*;
-import model.adapters.*;
+import model.adapter.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;
@@ -23,7 +23,7 @@ public class GameWindow extends JPanel {
 
 		setLayout(null);
 
-		animationWindow = new AnimationWindow(431, 431, new Level1());
+		animationWindow = new AnimationWindow(431, 431, new Level1().getGamePlay());
 		animationWindow.setLocation(0, 0);
 
 		add(animationWindow);
@@ -41,7 +41,7 @@ public class GameWindow extends JPanel {
 
 	public void newLevelSelected(Level level) {
 		remove(animationWindow);
-		animationWindow = new AnimationWindow(430, 430, level);
+		animationWindow = new AnimationWindow(430, 430, level.getGamePlay());
 		animationWindow.setLocation(0, 0);
 		add(animationWindow);
 

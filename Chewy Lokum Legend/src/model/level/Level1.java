@@ -1,7 +1,7 @@
 package model.level;
 
 import model.*;
-import model.adapters.*;
+import model.adapter.*;
 import model.interfaces.*;
 import model.level.*;
 import model.lokum.*;
@@ -22,8 +22,8 @@ public class Level1 extends MoveBasedLevel {
 				{"NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum"},
 				{"NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum"}
 		};
-		this.board = new Board(430, 430, boardShape);
-		this.gamePlay = new GamePlay(this);
+		Board board = new Board(430, 430, boardShape);
+		this.gamePlay = new GamePlay(board);
 	}
 	
 }
