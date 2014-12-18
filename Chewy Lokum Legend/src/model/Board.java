@@ -17,7 +17,7 @@ public class Board implements Drawable {
 	private String[][] boardShape;
 	private int numOfLokumsInAColumn;
 	private int numOfLokumsInARow;
-	private Lokum[][] lokumArray;
+	public Lokum[][] lokumArray;
 
 	private int blockWidth;
 	private int blockHeight;
@@ -110,7 +110,7 @@ public class Board implements Drawable {
 	public void setLokumHeight(int lokumHeight) {
 		this.lokumHeight = lokumHeight;
 	}
-
+	
 	public void fillBoardRandomly() {
 		for(int i=0; i<numOfLokumsInAColumn; i++){
 			for(int j=0; j<numOfLokumsInARow; j++){
