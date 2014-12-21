@@ -33,5 +33,11 @@ public class NormalLokum extends Lokum implements Movable, Destructible {
 		setX(getX()+x);
 		setY(getY()+y);
 	}
-	
+
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		AdapterManager.getInstance().getCurrentLokumDestroyerAdapter().destroy(this);
+	}
+
 }

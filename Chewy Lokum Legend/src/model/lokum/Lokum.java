@@ -66,7 +66,7 @@ public abstract class Lokum implements Drawable {
 		this.height = height;
 	}
 
-	public boolean contains(int x, int y) {
+	public boolean doesContain(int x, int y) {
 		if ((x >= this.x && x <= this.x + width)
 				&& (y >= this.y && y <= this.y + height)) {
 			return true;

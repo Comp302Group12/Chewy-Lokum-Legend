@@ -110,7 +110,7 @@ public class Board implements Drawable {
 	public void setLokumHeight(int lokumHeight) {
 		this.lokumHeight = lokumHeight;
 	}
-	
+
 	public void fillBoardRandomly() {
 		for(int i=0; i<numOfLokumsInAColumn; i++){
 			for(int j=0; j<numOfLokumsInARow; j++){
@@ -150,11 +150,11 @@ public class Board implements Drawable {
 		return lokum;
 	}
 
-	public int[] detectArrayCoordinatesOfLokumAtPosition(int x, int y) {
+	public int[] getLokumArrayCoordinatesOfLokumAtPosition(int x, int y) {
 		int[] array = new int[2];
 		for(int i=0; i<numOfLokumsInAColumn; i++) {
 			for(int j=0; j<numOfLokumsInARow; j++) {
-				if(lokumArray[i][j].contains(x, y)) {
+				if(lokumArray[i][j].doesContain(x, y)) {
 					array[0] = i;
 					array[1] = j;
 					return array;
@@ -164,8 +164,12 @@ public class Board implements Drawable {
 		return null;
 	}
 
+	public int[] getLokumArrayCoordinatesOfLokum (Lokum lokum) {
+		return getLokumArrayCoordinatesOfLokumAtPosition(lokum.getX(), lokum.getY());
+	}
+
 	public Lokum lokumAtPosition(int x, int y){		
-		int[] coordinates = detectArrayCoordinatesOfLokumAtPosition(x, y);
+		int[] coordinates = getLokumArrayCoordinatesOfLokumAtPosition(x, y);
 		if(coordinates != null) {
 			return lokumArray[coordinates[0]][coordinates[1]];
 		}
@@ -173,31 +177,90 @@ public class Board implements Drawable {
 	}
 
 	public void swap(Lokum lokum1, Lokum lokum2) {
-		int[] arrayCoordinatesOfLokum1 = detectArrayCoordinatesOfLokumAtPosition(lokum1.getX(), lokum1.getY());
-		int[] arrayCoordinatesOfLokum2 = detectArrayCoordinatesOfLokumAtPosition(lokum2.getX(), lokum2.getY());
+		int[] arrayCoordinatesOfLokum1 = getLokumArrayCoordinatesOfLokum(lokum1);
+		int[] arrayCoordinatesOfLokum2 = getLokumArrayCoordinatesOfLokum(lokum2);
 		Lokum temp = lokum1;
 		lokumArray[arrayCoordinatesOfLokum1[0]][arrayCoordinatesOfLokum1[1]] = lokum2;
 		lokumArray[arrayCoordinatesOfLokum2[0]][arrayCoordinatesOfLokum2[1]] = temp;
 	}
 
 	public boolean areLokumsAdjacent(Lokum lokum1, Lokum lokum2) {
-		int[] arrayCoordinatesOfLokum1 = detectArrayCoordinatesOfLokumAtPosition(lokum1.getX(), lokum1.getY());
-		int[] arrayCoordinatesOfLokum2 = detectArrayCoordinatesOfLokumAtPosition(lokum2.getX(), lokum2.getY());
-		int i1 = arrayCoordinatesOfLokum1[0];
-		int j1 = arrayCoordinatesOfLokum1[1];
-		int i2 = arrayCoordinatesOfLokum2[0];
-		int j2 = arrayCoordinatesOfLokum2[1];
-		if(((i1-1 == i2) && (j1 == j2)) //is lokum2 at the top of lokum1?
-				|| ((i1+1 == i2) && (j1 == j2)) //is lokum2 is at the bottom of lokum1?
-				|| ((i1 == i2) && (j1-1 == j2)) //is lokum2 at the left of lokum1?
-				|| ((i1 == i2) && (j1+1 == j2)) //is lokum2 at the right of lokum1?
-				|| ((i1-1 == i2) && (j1-1 == j2 || j1+1 == j2)) //is lokum2 at the upper cross of lokum1?
-				|| ((i1+1 == i2) && (j1-1 == j2 || j1+1 == j2)) //is lokum2 at the lower cross of lokum1?
-				) {
+		if(lokum2 == getTopAdjacentOfLokum(lokum1)
+				|| lokum2 == getBottomAdjacentOfLokum(lokum1)
+				|| lokum2 == getLeftAdjacentOfLokum(lokum1)
+				|| lokum2 == getRightAdjacentOfLokum(lokum1)
+				|| lokum2 == getUpperLeftAdjacentOfLokum(lokum1)
+				|| lokum2 == getUpperRightAdjacentOfLokum(lokum1)
+				|| lokum2 == getLowerLeftAdjacentOfLokum(lokum1)
+				|| lokum2 == getLowerRightAdjacentOfLokum(lokum1)) {
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	public Lokum getTopAdjacentOfLokum(Lokum lokum) {
+		int[] arrayCoordinatesOfLokum = getLokumArrayCoordinatesOfLokum(lokum);
+		int i = arrayCoordinatesOfLokum[0];
+		int j = arrayCoordinatesOfLokum[1];
+		if(i>0)	return lokumArray[i-1][j];
+		return null;
+	}
+
+	public Lokum getBottomAdjacentOfLokum(Lokum lokum) {
+		int[] arrayCoordinatesOfLokum = getLokumArrayCoordinatesOfLokum(lokum);
+		int i = arrayCoordinatesOfLokum[0];
+		int j = arrayCoordinatesOfLokum[1];
+		if(i<numOfLokumsInAColumn-1) return lokumArray[i+1][j];
+		return null;
+	}
+
+	public Lokum getLeftAdjacentOfLokum(Lokum lokum) {
+		int[] arrayCoordinatesOfLokum = getLokumArrayCoordinatesOfLokum(lokum);
+		int i = arrayCoordinatesOfLokum[0];
+		int j = arrayCoordinatesOfLokum[1];
+		if(j>0) return lokumArray[i][j-1];
+		return null;
+	}
+
+	public Lokum getRightAdjacentOfLokum(Lokum lokum) {
+		int[] arrayCoordinatesOfLokum = getLokumArrayCoordinatesOfLokum(lokum);
+		int i = arrayCoordinatesOfLokum[0];
+		int j = arrayCoordinatesOfLokum[1];
+		if(j<numOfLokumsInARow-1) return lokumArray[i][j+1];
+		return null;
+	}
+
+	public Lokum getUpperLeftAdjacentOfLokum(Lokum lokum) {
+		int[] arrayCoordinatesOfLokum = getLokumArrayCoordinatesOfLokum(lokum);
+		int i = arrayCoordinatesOfLokum[0];
+		int j = arrayCoordinatesOfLokum[1];
+		if(i>0 && j>0) return lokumArray[i-1][j-1];
+		return null;
+	}
+
+	public Lokum getUpperRightAdjacentOfLokum(Lokum lokum) {
+		int[] arrayCoordinatesOfLokum = getLokumArrayCoordinatesOfLokum(lokum);
+		int i = arrayCoordinatesOfLokum[0];
+		int j = arrayCoordinatesOfLokum[1];
+		if(i>0 && j<numOfLokumsInARow-1) return lokumArray[i-1][j+1];
+		return null;
+	}
+
+	public Lokum getLowerLeftAdjacentOfLokum(Lokum lokum) {
+		int[] arrayCoordinatesOfLokum = getLokumArrayCoordinatesOfLokum(lokum);
+		int i = arrayCoordinatesOfLokum[0];
+		int j = arrayCoordinatesOfLokum[1];
+		if(i<numOfLokumsInAColumn-1 && j>0) return lokumArray[i+1][j-1];
+		return null;
+	}
+
+	public Lokum getLowerRightAdjacentOfLokum(Lokum lokum) {
+		int[] arrayCoordinatesOfLokum = getLokumArrayCoordinatesOfLokum(lokum);
+		int i = arrayCoordinatesOfLokum[0];
+		int j = arrayCoordinatesOfLokum[1];
+		if(i<numOfLokumsInAColumn-1 && j<numOfLokumsInARow-1) return lokumArray[i+1][j+1];
+		return null;
 	}
 
 	public void draw(Graphics g) {

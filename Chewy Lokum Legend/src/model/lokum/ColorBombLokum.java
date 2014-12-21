@@ -13,12 +13,12 @@ public class ColorBombLokum extends Lokum implements Movable, Destructible {
 
 	public ColorBombLokum() {
 		// TODO Auto-generated constructor stub
-		super(Color.BLACK, 0, 0, 0, 0);
+		super(Color.WHITE, 0, 0, 0, 0);
 	}
 
 	public ColorBombLokum(int x, int y, int width, int height) {
 		// TODO Auto-generated constructor stub
-		super(Color.BLACK, x, y, width, height);
+		super(Color.WHITE, x, y, width, height);
 	}
 
 	@Override
@@ -36,6 +36,12 @@ public class ColorBombLokum extends Lokum implements Movable, Destructible {
 		// TODO Auto-generated method stub
 		setX(getX()+x);
 		setY(getY()+y);
+	}
+
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		AdapterManager.getInstance().getCurrentLokumDestroyerAdapter().destroy(this);
 	}
 
 }

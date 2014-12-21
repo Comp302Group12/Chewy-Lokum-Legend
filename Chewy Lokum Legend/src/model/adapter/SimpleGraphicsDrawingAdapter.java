@@ -22,9 +22,15 @@ public class SimpleGraphicsDrawingAdapter extends DrawingAdapter {
 	@Override
 	public void draw(Graphics g, Obstacle obstacle) {
 		// TODO Auto-generated method stub
-		g.setColor(obstacle.getColor());
+		g.setColor(Color.BLACK);
 		g.fillRect(obstacle.getX(), obstacle.getY(), obstacle.getWidth(),
 				obstacle.getHeight());
+	}
+	
+	@Override
+	public void draw(Graphics g, DestroyedLokum lokum) {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override

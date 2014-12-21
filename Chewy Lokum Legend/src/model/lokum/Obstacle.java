@@ -14,11 +14,11 @@ public class Obstacle extends Lokum {
 	
 	public Obstacle() {
 		// TODO Auto-generated constructor stub
-		super(Color.BLACK, 0, 0, 0, 0);
+		super(Color.WHITE, 0, 0, 0, 0);
 	}
 
 	public Obstacle(int x, int y, int width, int height) {
-		super(Color.BLACK, x, y, width, height);
+		super(Color.WHITE, x, y, width, height);
 		// TODO Auto-generated constructor stub
 	}
 

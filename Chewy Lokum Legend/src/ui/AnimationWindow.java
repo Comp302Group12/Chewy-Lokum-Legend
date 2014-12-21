@@ -26,10 +26,10 @@ public class AnimationWindow extends JPanel {
 
 	int width;
 	int height;
+	Game game;
 	GamePlay gamePlay;
 	private AnimationEventListener eventListener;
 	private Timer timer;
-	private boolean mode;
 
 	public AnimationWindow(int width, int height, GamePlay gamePlay) {
 		// TODO Auto-generated constructor stub
@@ -58,9 +58,15 @@ public class AnimationWindow extends JPanel {
 		return TIMER_DELAY_CONS;
 	}
 
-	class AnimationEventListener extends MouseAdapter implements
-	MouseMotionListener, ActionListener {
-
+	class AnimationEventListener extends MouseAdapter implements MouseMotionListener, ActionListener {
+		/*
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			gamePlay.destroy();
+			gamePlay.placeSpecialLokums();
+		}
+		 */
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub

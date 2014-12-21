@@ -34,4 +34,10 @@ public class WrappedLokum extends Lokum implements Movable, Destructible {
 		setY(getY()+y);
 	}
 
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		AdapterManager.getInstance().getCurrentLokumDestroyerAdapter().destroy(this);
+	}
+
 }
