@@ -16,6 +16,7 @@ public class AdapterManager {
 	private LokumDestroyerAdapter currentLokumDestroyerAdapter;
 	private LokumFallerAdapter currentLokumFallerAdapter;
 	private ScoreCalculatorAdapter currentScoreCalculatorAdapter;
+	private SaveAndLoadAdapter currentSaveAndLoadAdapter;
 
 	public static AdapterManager getInstance(){
 		if (instance == null) {
@@ -32,30 +33,35 @@ public class AdapterManager {
 		currentLokumDestroyerAdapter = new LokumDestroyerAdapter();
 		currentLokumFallerAdapter = new LokumFallerAdapter();
 		currentScoreCalculatorAdapter = new ScoreCalculatorAdapter();
+		currentSaveAndLoadAdapter = new SaveAndLoadAdapter();
 	}
 
 	public DrawingAdapter getCurrentDrawingAdapter() {
 		return currentDrawingAdapter;
 	}
-	
+
 	public LokumSwapperAdapter getCurrentLokumSwapperAdapter() {
 		return currentLokumSwapperAdapter;
 	}
-	
+
 	public LokumCombinationAdapter getCurrentLokumCombinationAdapter() {
 		return currentLokumCombinationAdapter;
 	}
-	
+
 	public LokumDestroyerAdapter getCurrentLokumDestroyerAdapter() {
 		return currentLokumDestroyerAdapter;
 	}
-	
+
 	public LokumFallerAdapter getCurrentLokumFallerAdapter() {
 		return currentLokumFallerAdapter;
 	}
-	
+
 	public ScoreCalculatorAdapter getCurrentScoreCalculatorAdapter() {
 		return currentScoreCalculatorAdapter;
+	}
+
+	public SaveAndLoadAdapter getCurrentSaveAndLoadAdapter() {
+		return currentSaveAndLoadAdapter;
 	}
 
 }
