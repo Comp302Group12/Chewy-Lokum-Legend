@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/savedGame" xmlns:tns="http://www.example.org/savedGame" elementFormDefault="qualified">
+
+
+
+    <element name="savedGame" type="tns:savedGame"></element>
+    
+    <complexType name="savedGame">
+    	<sequence>
+    		<element name="board" type="string"></element>
+    	</sequence>
+    	<attribute name="level" type="string"></attribute>
+    	<attribute name="numOfRemainingMoves" type="string"></attribute>
+    	<attribute name="score" type="string"></attribute>
+    </complexType>
+
+    <element name="board" type="tns:board"></element>
+    
+    <complexType name="board">
+    	<sequence>
+    		<element name="lokums" type="string"></element>
+    	</sequence>
+    	<attribute name="numOfLokumsInAColumns" type="string"></attribute>
+    	<attribute name="NewAttribute" type="string"></attribute>
+    </complexType>
+
+    <element name="lokums" type="tns:lokums"></element>
+    
+
+    <complexType name="lokums">
+    	<sequence>
+    		<element name="lokum" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="lokum" type="tns:lokum"></element>
+    
+    <complexType name="lokum">
+    	<sequence>
+    		<element name="colorOfLokum" type="string"></element>
+    	</sequence>
+    	<attribute name="typeOfLokum" type="string"></attribute>
+    </complexType>
+
+    <element name="colorOfLokum" type="tns:colorOfLokum"></element>
+    
+
+    <complexType name="colorOfLokum">
+    	<attribute name="r" type="string"></attribute>
+    	<attribute name="g" type="string"></attribute>
+    	<attribute name="b" type="string"></attribute>
+    </complexType>
+
+    <attribute name="level" type="string"></attribute>
+
+
+    <attribute name="numOfRemainingMoves" type="string"></attribute>
+
+    <attribute name="score" type="string"></attribute>
+
+    <attribute name="numOfLokumsInARow" type="string"></attribute>
+
+    <attribute name="numOfLokumsInAColumn" type="string"></attribute>
+
+    <attribute name="typeOfLokum" type="string"></attribute>
+
+
+    <attribute name="r" type="string"></attribute>
+
+    <attribute name="g" type="string"></attribute>
+
+    <attribute name="b" type="string"></attribute>
+</schema>
