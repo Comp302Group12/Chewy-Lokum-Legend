@@ -1,4 +1,4 @@
-package test.junittest.blackboxtest;
+package test.junittest;
 
 import static org.junit.Assert.*;
 
@@ -6,15 +6,12 @@ import java.awt.Color;
 
 import model.Board;
 import model.GamePlay;
-import model.adapter.LokumSwapperAdapter;
-import model.adapter.RegularLokumSwapperAdapter;
 
-import org.hamcrest.core.IsSame;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class RegularLokumSwapperAdapterJUnitTest {
+public class LokumSwapperAdapterJUnitTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -26,8 +23,6 @@ public class RegularLokumSwapperAdapterJUnitTest {
 
 	@Test
 	public void testCheckConditions() {
-
-		//fail("Not yet implemented");
 		String[][] boardShape = {
 				{"NormalLokum", "NormalLokum", "NormalLokum"},
 				{"NormalLokum", "NormalLokum", "NormalLokum"},
@@ -45,7 +40,6 @@ public class RegularLokumSwapperAdapterJUnitTest {
 				!(board.areLokumsAdjacent(board.lokumArray[0][0], board.lokumArray[2][1]))
 								);
 		assertTrue(istrue);
-	
 	}
 
 	@Test
@@ -69,6 +63,7 @@ public class RegularLokumSwapperAdapterJUnitTest {
 
 	@Test
 	public void testDoAfterSwapIsEnded() {
+
 		String[][] boardShape = {
 				{"NormalLokum", "NormalLokum", "NormalLokum"},
 				{"NormalLokum", "NormalLokum", "NormalLokum"},
@@ -103,37 +98,15 @@ public class RegularLokumSwapperAdapterJUnitTest {
 		assertTrue(istrue && istrue2);
 		
 	}
-	
-
-	@Test
-	public void testRegularLokumSwapperAdapter() {
-	}
-
-	@Test
-	public void testSwapBack() {
-		String[][] boardShape = {
-				{"NormalLokum", "NormalLokum", "NormalLokum"},
-				{"NormalLokum", "NormalLokum", "NormalLokum"},
-				{"NormalLokum", "NormalLokum", "NormalLokum"},
-				};
-		
-		Board board = new Board(300, 300, boardShape);		
-		GamePlay gamePlay = new GamePlay(board);
-		board.lokumArray[0][0].setColor(Color.BLUE);
-		board.lokumArray[0][1].setColor(Color.RED);
-		board.swap(board.lokumArray[0][0], board.lokumArray[0][1]);
-		boolean istrue;
-		istrue = (board.lokumArray[0][1].getColor() == Color.BLUE &&
-				board.lokumArray[0][0].getColor() == Color.RED) ;
-		assertTrue(istrue);
-	}
 
 	@Test
 	public void testLokumSwapperAdapter() {
+	//	fail("Not yet implemented");
 	}
 
 	@Test
 	public void testIsSwapInProgres() {
+		//fail("Not yet implemented");
 	}
 
 	@Test
@@ -153,36 +126,6 @@ public class RegularLokumSwapperAdapterJUnitTest {
 		istrue = (board.lokumArray[0][1].getColor() == Color.BLUE &&
 				board.lokumArray[0][0].getColor() == Color.RED) ;
 		assertTrue(istrue);
-	}
-
-	@Test
-	public void testStartSwap() {
-	//	fail("Not yet implemented");
-	}
-
-	@Test
-	public void testStopSwap() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
-	public void testCancelSwap() {
-		//fail("Not yet implemented");
-		String[][] boardShape = {
-				{"NormalLokum", "NormalLokum", "NormalLokum"},
-				{"NormalLokum", "NormalLokum", "NormalLokum"},
-				{"NormalLokum", "NormalLokum", "NormalLokum"},
-				};
-		
-		Board board = new Board(300, 300, boardShape);
-		
-		board.lokumArray[0][0].setColor(Color.BLUE);
-		board.lokumArray[0][1].setColor(Color.BLUE);
-		board.lokumArray[0][2].setColor(Color.BLUE);
-		
-		GamePlay gamePlay = new GamePlay(board);
-		
-		assertTrue(gamePlay.doesBoardHaveCombination());
 	}
 
 }
