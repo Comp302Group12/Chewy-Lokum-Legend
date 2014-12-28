@@ -96,6 +96,13 @@ public class LokumCombinationAdapterJUnitTest {
 		assertTrue(gamePlay.doesBoardHaveCombination());
 		tester.searchCombinationsToFormSpecialLokums();
 		gamePlay.placeSpecialLokums();
+		
+		System.out.println(gamePlay.board.lokumArray[3][0].getColor());
+		System.out.println(gamePlay.board.lokumArray[4][0].getColor());
+		System.out.println(gamePlay.board.lokumArray[4][1].getColor());
+		System.out.println(gamePlay.board.lokumArray[4][2].getColor());
+		System.out.println(gamePlay.board.lokumArray[4][3].getColor());
+		System.out.println(gamePlay.board.lokumArray[4][4].getColor());
 	}
 
 	@Test
