@@ -168,21 +168,6 @@ public class RegularLokumSwapperAdapterJUnitTest {
 	@Test
 	public void testCancelSwap() {
 		//fail("Not yet implemented");
-		String[][] boardShape = {
-				{"NormalLokum", "NormalLokum", "NormalLokum"},
-				{"NormalLokum", "NormalLokum", "NormalLokum"},
-				{"NormalLokum", "NormalLokum", "NormalLokum"},
-				};
-		
-		Board board = new Board(300, 300, boardShape);
-		
-		board.lokumArray[0][0].setColor(Color.BLUE);
-		board.lokumArray[0][1].setColor(Color.BLUE);
-		board.lokumArray[0][2].setColor(Color.BLUE);
-		
-		GamePlay gamePlay = new GamePlay(board);
-		
-		assertTrue(gamePlay.doesBoardHaveCombination());
 	}
 
 }

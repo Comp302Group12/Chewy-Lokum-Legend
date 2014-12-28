@@ -111,6 +111,11 @@ public class Board implements Drawable {
 		this.lokumHeight = lokumHeight;
 	}
 
+	/**
+	 * @modifies board lokumarray
+	 * @requires 
+	 * @effects board filled randomly
+	 */	
 	public void fillBoardRandomly() {
 		for(int i=0; i<numOfLokumsInAColumn; i++){
 			for(int j=0; j<numOfLokumsInARow; j++){
@@ -119,6 +124,11 @@ public class Board implements Drawable {
 		}
 	}
 
+	/**
+	 * @modifies 
+	 * @requires type of lokum, coordinates at lokumArray
+	 * @effects random lokum is created
+	 */
 	public Lokum createRandomLokum(String typeOfLokum, int i, int j) {
 		Random rgen = new Random();
 		Color randomColor = Lokum.lokumColors[rgen.nextInt(Lokum.lokumColors.length)];
@@ -150,6 +160,11 @@ public class Board implements Drawable {
 		return lokum;
 	}
 
+	/**
+	 * @modifies
+	 * @requires board, x and y position
+	 * @effects 
+	 */
 	public int[] getLokumArrayCoordinatesOfLokumAtPosition(int x, int y) {
 		int[] array = new int[2];
 		for(int i=0; i<numOfLokumsInAColumn; i++) {
