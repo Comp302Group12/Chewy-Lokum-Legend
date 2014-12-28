@@ -13,7 +13,11 @@ import model.lokum.WrappedLokum;
 public class LokumDestroyerAdapter {
 
 	Board board;
-
+	/**
+	 * @modifies board lokumarray
+	 * @requires requires 2 or more same colored lokums to create combination by swapping or lokums falling
+	 * @effects lokums that create the combination are converted to destroyed lokums,  board is updated.
+	 */	
 	public void destroyExistingCombinations(GamePlay gamePlay) {
 		board = gamePlay.getBoard();
 		for(int i=0; i< AdapterManager.getInstance().getCurrentLokumCombinationAdapter().rowCombinations.size(); i++) {
@@ -38,12 +42,21 @@ public class LokumDestroyerAdapter {
 			}
 		}
 	}
-
+	/**
+	 * @modifies lokum
+	 * @requires normal lokum
+	 * @effects lokum is converted to destroyed lokums,  board is updated.
+	 */	
 	public void destroy(NormalLokum lokum) {
 		int[] coor = board.getLokumArrayCoordinatesOfLokum(lokum);
 		board.lokumArray[coor[0]][coor[1]] = new DestroyedLokum(lokum.getX(), lokum.getY(), lokum.getWidth(), lokum.getHeight());
 	}
-
+	/**
+	 * @modifies lokum
+	 * @requires striped lokum
+	 * @effects striped lokum and other lokums in its row or
+	 * column depending on its horizantal or vertical is converted to destroyed lokums,  board is updated.
+	 */	
 	public void destroy(StripedLokum lokum) {
 		int[] coor = board.getLokumArrayCoordinatesOfLokum(lokum);
 		board.lokumArray[coor[0]][coor[1]] = new DestroyedLokum(lokum.getX(), lokum.getY(), lokum.getWidth(), lokum.getHeight());
@@ -63,7 +76,11 @@ public class LokumDestroyerAdapter {
 			}
 		}
 	}
-
+	/**
+	 * @modifies lokum
+	 * @requires wrapped lokum
+	 * @effects wrapped lokum and other lokums in its adjacent converted to destroyed lokums,  board is updated.
+	 */	
 	public void destroy(WrappedLokum lokum) {
 		int[] coor = board.getLokumArrayCoordinatesOfLokum(lokum);
 		board.lokumArray[coor[0]][coor[1]] = new DestroyedLokum(lokum.getX(), lokum.getY(), lokum.getWidth(), lokum.getHeight());

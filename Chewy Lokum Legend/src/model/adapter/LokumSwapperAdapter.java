@@ -39,7 +39,11 @@ public abstract class LokumSwapperAdapter implements ActionListener {
 	public boolean isSwapInProgres() {
 		return isSwapInProgres;
 	}
-
+	/**
+	 * @modifies board gameplay lokumarray
+	 * @requires player to select lokums
+	 * @effects swaps the lokums if conditions met if not during swap swap is canceled
+	 */	
 	public void swapLokums(GamePlay gamePlay, Lokum lokum1, Lokum lokum2) {
 		isSwapInProgres = true;
 		this.gamePlay = gamePlay;
@@ -55,18 +59,30 @@ public abstract class LokumSwapperAdapter implements ActionListener {
 			cancelSwap();
 		}
 	}
-
+	/**
+	 * @modifies board gameplay lokumarray
+	 * @requires player to select lokums
+	 * @effects swaps is started, timer is activated
+	 */	
 	public void startSwap() {
 		doBeforeSwapIsStarted();
 		timer.start();
 	}
-
+	/**
+	 * @modifies board gameplay lokumarray
+	 * @requires lokums swapping is ended
+	 * @effects  timer is stopped, swapping is stopped, if conditions do not met swapped lokums will be swapped back
+	 */	
 	public void stopSwap() {
 		timer.stop();
 		doAfterSwapIsEnded();
 		isSwapInProgres = false;
 	}
-
+	/**
+	 * @modifies board gameplay lokumarray
+	 * @requires lokums are swapping
+	 * @effects  timer is stopped, cancels swapping back, board is updated
+	 */	
 	public void cancelSwap() {
 		timer.stop();
 		isSwapInProgres = false;
