@@ -25,7 +25,12 @@ public class ApplicationWindow extends JFrame {
 	LevelSelectionWindow levelSelectionWindow;
 	GameWindow gameWindow;
 	PauseGameWindow pauseGameWindow;
-
+	/**
+	 * @modifies userinterface applicationwindow
+	 * @requires player to press buttons to navigate between screens
+	 * @effects starts game when start game button is presses, level is seleceted when level is clicked, 
+	 * game is paused when pause game clicked continues when continue game is clicked...
+	 */	
 	public ApplicationWindow() {
 		super("Chewy Lokum Legend");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
