@@ -18,14 +18,22 @@ public class LokumCombinationAdapter {
 	public ArrayList<Lokum[]> rowCombinations;
 	public ArrayList<Lokum[]> columnCombinations;
 	public ArrayList<Lokum> specialLokums;
-
+	/**
+	 * @modifies board lokumarray
+	 * @requires speciallokums are found and put into array list
+	 * @effects speciallokums are placed
+	 */	
 	public void placeSpecialLokums() {
 		for(int i=0; i<specialLokums.size(); i++){
 			int[] coor = board.getLokumArrayCoordinatesOfLokum(specialLokums.get(i));
 			board.lokumArray[coor[0]][coor[1]] = specialLokums.get(i);
 		}
 	}
-
+	/**
+	 * @modifies speciallokum arraylist
+	 * @requires lokums fell or swapped
+	 * @effects speciallokums are found and put into array list
+	 */	
 	public void searchCombinationsToFormSpecialLokums() {
 		specialLokums = new ArrayList<Lokum>();
 		for(int i=0; i<rowCombinations.size(); i++){
@@ -53,7 +61,11 @@ public class LokumCombinationAdapter {
 			}
 		}
 	}
-
+	/**
+	 * @modifies speciallokum arraylist
+	 * @requires lokums fell or swapped
+	 * @effects wrappedlokums are found and put into array list
+	 */	
 	public void searchRowCombinationToFormWrappedLokum(Lokum[] combination) {
 		for(int i=0; i<combination.length; i++){
 			Lokum lokumToSearchAdjacents = combination[i];			
@@ -86,7 +98,12 @@ public class LokumCombinationAdapter {
 			}
 		}
 	}
-
+	/**
+	 * @modifies combinations arraylists
+	 * @requires lokums fell or swapped
+	 * @effects combinations found put into neccessary arraylists and if there is combination 
+	 * returns true
+	 */	
 	public boolean doesBoardHaveCombination(GamePlay gamePlay) {
 		this.gamePlay = gamePlay;
 		this.board = gamePlay.getBoard();
@@ -101,7 +118,11 @@ public class LokumCombinationAdapter {
 		findRowCombinations();
 		findColumnCombinations();
 	}
-
+	/**
+	 * @modifies rowCombinations arraylist
+	 * @requires lokums fell or swapped
+	 * @effects rowCombinations are found and put into array list
+	 */	
 	public void findRowCombinations() {
 		for(int i=0; i<board.getLokumArray().length; i++) {
 			Lokum[] row = board.getLokumArray()[i];
@@ -111,7 +132,11 @@ public class LokumCombinationAdapter {
 			}
 		}
 	}
-
+	/**
+	 * @modifies ColumnCombinations arraylist
+	 * @requires lokums fell or swapped
+	 * @effects ColumnCombinations are found and put into array list
+	 */	
 	public void findColumnCombinations() {
 		for(int i=0; i<board.lokumArray[0].length; i++) {
 			Lokum[] column = new Lokum[board.getLokumArray().length];

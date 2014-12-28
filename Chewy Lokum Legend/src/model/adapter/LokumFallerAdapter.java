@@ -33,14 +33,22 @@ public class LokumFallerAdapter implements ActionListener {
 		isFallInProgress = false;
 		test = false;
 	}
-
+	/**
+	 * @modifies isFallInProgress, timer
+	 * @requires there are destroyed lokums in board
+	 * @effects falling is started
+	 */	
 	public void fallLokums(GamePlay gamePlay) {
 		isFallInProgress = true;
 		this.gamePlay = gamePlay;
 		board = gamePlay.getBoard();
 		timer.start();
 	}
-
+	/**
+	 * @modifies board gameplay lokumarray
+	 * @requires there are destroyed lokums at top
+	 * @effects random lokums are generated at top
+	 */	
 	public void putRandomLokumsToTopRow() {
 		for(int i=0; i<board.getNumOfLokumsInARow(); i++){
 			if(board.lokumArray[0][i] instanceof DestroyedLokum) {
@@ -48,7 +56,11 @@ public class LokumFallerAdapter implements ActionListener {
 			}
 		}
 	}
-
+	/**
+	 * @modifies lokumstofall array lists
+	 * @requires there are destroyed lokums at board
+	 * @effects finds lokums to fall and put them in array list
+	 */	
 	public void findLokumsWhichNeedToFall() {
 		lokumsToFallDown = new ArrayList<Lokum>();
 		lokumsToFallLeftDown = new ArrayList<Lokum>();
@@ -70,12 +82,16 @@ public class LokumFallerAdapter implements ActionListener {
 			}
 		}
 	}
-
+	/**
+	 * @modifies isFallInProgress, timer
+	 * @requires falling is started
+	 * @effects falling is stopped
+	 */	
 	public void stopFalling() {
 		timer.stop();
 		isFallInProgress = false;
 	}
-
+	
 	public boolean isFallNeeded() {
 		return !lokumsToFallDown.isEmpty();
 	}
@@ -89,7 +105,11 @@ public class LokumFallerAdapter implements ActionListener {
 	public boolean isTest() {
 		return flsAdapter.isSwapInProgres();
 	}
-
+	/**
+	 * @modifies board lokum array gameplay
+	 * @requires destroyedlokums exist in board
+	 * @effects lokums fall and new ones come until falling is not needed
+	 */	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
