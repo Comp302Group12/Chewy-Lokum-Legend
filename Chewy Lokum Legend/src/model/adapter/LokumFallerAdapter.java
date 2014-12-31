@@ -60,6 +60,7 @@ public class LokumFallerAdapter implements ActionListener {
 	 * @modifies lokumstofall array lists
 	 * @requires there are destroyed lokums at board
 	 * @effects finds lokums to fall and put them in array list
+	 * 
 	 */	
 	public void findLokumsWhichNeedToFall() {
 		lokumsToFallDown = new ArrayList<Lokum>();

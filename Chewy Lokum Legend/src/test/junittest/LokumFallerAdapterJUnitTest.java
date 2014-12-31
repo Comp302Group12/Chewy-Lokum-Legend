@@ -219,6 +219,7 @@ public class LokumFallerAdapterJUnitTest {
 	@Test
 	public void testStopFalling() {
 		//fail("Not yet implemented");
+		//
 	}
 
 	@Test
