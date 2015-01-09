@@ -11,7 +11,6 @@ public class Level2 extends MoveBasedLevel {
 
 	public Level2() {
 		// TODO Auto-generated constructor stub
-		this.objective = new Objective(10);
 		String[][] boardShape = {
 				{"ColorBombLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "ColorBombLokum"},
 				{"EmptySpace", "EmptySpace", "EmptySpace", "NormalLokum", "NormalLokum", "EmptySpace", "EmptySpace", "EmptySpace"},
@@ -23,6 +22,9 @@ public class Level2 extends MoveBasedLevel {
 				{"EmptySpace", "EmptySpace", "EmptySpace", "NormalLokum", "NormalLokum", "EmptySpace", "EmptySpace", "EmptySpace"}
 		};
 		Board board = new Board(430, 430, boardShape);
-		this.gamePlay = new GamePlay(board);
+		this.gamePlay = new GamePlay(board, this);
+		remainingMove = 10;
+		objectiveScore = 5000;
+		AdapterManager.getInstance().newGame();
 	}
 }

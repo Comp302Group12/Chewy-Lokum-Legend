@@ -36,6 +36,16 @@ public class AdapterManager {
 		currentSaveAndLoadAdapter = new SaveAndLoadAdapter();
 	}
 
+	public void newGame(){
+		currentDrawingAdapter = new SimpleGraphicsDrawingAdapter();
+		currentLokumSwapperAdapter = new RegularLokumSwapperAdapter();
+		currentLokumCombinationAdapter = new LokumCombinationAdapter();
+		currentLokumDestroyerAdapter = new LokumDestroyerAdapter();
+		currentLokumFallerAdapter = new LokumFallerAdapter();
+		currentScoreCalculatorAdapter = new ScoreCalculatorAdapter();
+		currentSaveAndLoadAdapter = new SaveAndLoadAdapter();
+	}
+
 	public DrawingAdapter getCurrentDrawingAdapter() {
 		return currentDrawingAdapter;
 	}

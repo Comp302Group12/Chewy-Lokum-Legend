@@ -26,7 +26,7 @@ public class SimpleGraphicsDrawingAdapter extends DrawingAdapter {
 		g.fillRect(obstacle.getX(), obstacle.getY(), obstacle.getWidth(),
 				obstacle.getHeight());
 	}
-	
+
 	@Override
 	public void draw(Graphics g, DestroyedLokum lokum) {
 		// TODO Auto-generated method stub
@@ -107,6 +107,14 @@ public class SimpleGraphicsDrawingAdapter extends DrawingAdapter {
 					/ ROUND_RECT_ARC_CONS_FOR_LOKUMS, heightOfLokumPart
 					/ ROUND_RECT_ARC_CONS_FOR_LOKUMS);
 		}
+	}
+
+	public void draw(Graphics g, TimeLokum lokum) {
+		// TODO Auto-generated method stub
+		g.setColor(lokum.getColor());
+		g.fillOval(lokum.getX(), lokum.getY(), lokum.getWidth(),lokum.getHeight());
+		g.setColor(Color.WHITE);
+		g.drawString(""+lokum.getTime(), lokum.getX()+lokum.getWidth()/2, lokum.getY()+lokum.getHeight()/2);
 	}
 
 	@Override

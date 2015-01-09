@@ -26,7 +26,6 @@ public class AnimationWindow extends JPanel {
 
 	int width;
 	int height;
-	Game game;
 	GamePlay gamePlay;
 	private AnimationEventListener eventListener;
 	private Timer timer;
@@ -51,7 +50,13 @@ public class AnimationWindow extends JPanel {
 	protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
-		gamePlay.getBoard().draw(g);
+		if(gamePlay.isGameFinished()){
+			timer.stop();
+			g.drawString("Game Over", getWidth()/2, getHeight()/2);
+		} else {
+			gamePlay.getBoard().draw(g);
+		}
+
 	}
 
 	public static int getTIMER_DELAY_CONS() {

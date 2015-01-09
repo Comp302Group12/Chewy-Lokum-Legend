@@ -1,4 +1,4 @@
-package test.junittest;
+/*package test.junittest;
 
 import static org.junit.Assert.*;
 
@@ -233,3 +233,4 @@ public class LokumCombinationAdapterJUnitTest {
 	}
 
 }
+*/

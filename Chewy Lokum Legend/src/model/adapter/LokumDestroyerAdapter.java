@@ -8,6 +8,7 @@ import model.lokum.DestroyedLokum;
 import model.lokum.Lokum;
 import model.lokum.NormalLokum;
 import model.lokum.StripedLokum;
+import model.lokum.TimeLokum;
 import model.lokum.WrappedLokum;
 
 public class LokumDestroyerAdapter {
@@ -140,14 +141,19 @@ public class LokumDestroyerAdapter {
 		if(lowerLeftAdjacent instanceof Destructible) {
 			((Destructible) lowerLeftAdjacent).destroy();
 		}
-		
+
 		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyWrappedLokumScore();
+	}
+
+	public void destroy(TimeLokum lokum) {
+		int[] coor = board.getLokumArrayCoordinatesOfLokum(lokum);
+		board.lokumArray[coor[0]][coor[1]] = new DestroyedLokum(lokum.getX(), lokum.getY(), lokum.getWidth(), lokum.getHeight());
 	}
 
 	public void destroy(ColorBombLokum lokum) {
 		int[] coor = board.getLokumArrayCoordinatesOfLokum(lokum);
 		board.lokumArray[coor[0]][coor[1]] = new DestroyedLokum(lokum.getX(), lokum.getY(), lokum.getWidth(), lokum.getHeight());
-		
+
 		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyColorBombLokumScore(board);
 	}
 

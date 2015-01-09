@@ -5,7 +5,7 @@ import model.lokum.Lokum;
 
 public class ScoreCalculatorAdapter {
 	
-	int score;
+	public int score;
 	
 	public ScoreCalculatorAdapter() {
 		score=0;

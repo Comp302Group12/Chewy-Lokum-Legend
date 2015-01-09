@@ -9,15 +9,14 @@ import ui.*;
 
 public abstract class Level {
 
-	protected Objective objective;
+	protected int objectiveScore;
 	protected GamePlay gamePlay;
-
-	public Objective getObjective() {
-		return objective;
-	}
 
 	public GamePlay getGamePlay() {
 		return gamePlay;
 	}
+
+	public abstract boolean shouldGameFinish();
+	public abstract void playerSwapped();
 
 }

@@ -11,16 +11,24 @@ public class GamePlay {
 	public Lokum selectedLokum1;
 	public Lokum selectedLokum2;
 	public Board board;
+	public Level level;
 	private boolean gameMode;
+	private boolean isGameFinished;
 
-	public GamePlay(Board board) {
+	public GamePlay(Board board, Level level) {
 		// TODO Auto-generated constructor stub
 		this.board = board;
+		this.level = level;
 		gameMode = true;
+		isGameFinished = false;
 	}
 
 	public Board getBoard() {
 		return board;
+	}
+
+	public boolean isGameFinished() {
+		return isGameFinished;
 	}
 
 	public void selectLokum1(int x, int y) {
@@ -50,11 +58,11 @@ public class GamePlay {
 		AdapterManager.getInstance().getCurrentLokumSwapperAdapter().swapLokums(this, selectedLokum1, selectedLokum2);
 		resetSelectedLokums();
 	}
-	
+
 	public boolean doLokumsFormSpecialCombination(Lokum lokum1, Lokum lokum2) {
 		return AdapterManager.getInstance().getCurrentLokumCombinationAdapter().doLokumsFormSpecialCombination(lokum1, lokum2);
 	}
-	
+
 
 	public boolean doesBoardHaveCombination() {
 		return AdapterManager.getInstance().getCurrentLokumCombinationAdapter().doesBoardHaveCombination(this);
@@ -84,11 +92,14 @@ public class GamePlay {
 	}
 
 	public void update() {
-		if(isGameModeOn() && doesBoardHaveCombination()){
-			destroyExistingCombinations();
-			placeSpecialLokums();
-			fallLokums();
-
+		if(isGameModeOn()){
+			if(level.shouldGameFinish()){
+				isGameFinished = true;
+			} else if(doesBoardHaveCombination()) {
+				destroyExistingCombinations();
+				placeSpecialLokums();
+				fallLokums();
+			}
 		}
 	}
 
