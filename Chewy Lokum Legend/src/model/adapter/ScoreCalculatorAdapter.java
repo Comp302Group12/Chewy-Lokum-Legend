@@ -59,14 +59,13 @@ public class ScoreCalculatorAdapter {
 	
 	public void destroyColorBombLokumScore (Board board) {
 		
-		// score += (numberOfMatchedColor^2)*60;
+		// gerek yok..
 		
-		System.out.println(score);
 	}
 	
-	public void destroyNormalColorBombLokumScore (Board board) {
+	public void destroyNormalColorBombLokumScore (int i) {
 		
-		
+		score += i*60;
 		
 	}
 	
@@ -82,27 +81,27 @@ public class ScoreCalculatorAdapter {
 		score += board.getNumOfLokumsInAColumn()*3*60 + board.getNumOfLokumsInARow()*3*60;
 	}
 	
-	public void destroyColorBombStripedbLokumScore (Board board) {
+	public void destroyColorBombStripedbLokumScore (int i) {
 		
-		
+		score += i*120;
 		
 	}
 	
-	public void destroyWrappedWrappedLokumScore (Board board) {
+	public void destroyWrappedWrappedLokumScore () {
 		
 		score += 3600;
 		
 	}
 	
-	public void destroyColorBombWrappedLokumScore (Board board) {
+	public void destroyColorBombWrappedLokumScore (int i) {
 		
-		
+		score += 2*200;
 		
 	}
 	
-	public void destroyColorBombColorBombLokumScore (Board board) {
+	public void destroyColorBombColorBombLokumScore (int i) {
 		
-		
+		score += (i^2)*100;
 		
 	}
 	

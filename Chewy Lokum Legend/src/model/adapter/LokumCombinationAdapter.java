@@ -67,51 +67,40 @@ public class LokumCombinationAdapter {
 		if(lokum1 instanceof NormalLokum){
 			if(lokum2 instanceof ColorBombLokum){
 				formSpecialCombination((NormalLokum) lokum1, (ColorBombLokum) lokum2);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyNormalColorBombLokumScore(board);
 			}
 		} else if(lokum1 instanceof StripedLokum){
 			if(lokum2 instanceof StripedLokum){
-				formSpecialCombination((StripedLokum) lokum1, (StripedLokum) lokum2);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyStripedStripedbLokumScore(board);
+				formSpecialCombination((StripedLokum) lokum1, (StripedLokum) lokum2);	
 			}
 			else if (lokum2 instanceof WrappedLokum){
-				formSpecialCombination((StripedLokum) lokum1, (WrappedLokum) lokum2);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyWrappedStripedbLokumScore(board);
-			
+				formSpecialCombination((StripedLokum) lokum1, (WrappedLokum) lokum2);			
 			}
 			else if (lokum2 instanceof ColorBombLokum){
 				formSpecialCombination((StripedLokum) lokum1, (ColorBombLokum) lokum2);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyColorBombStripedbLokumScore(board);
 			}
 		} else if(lokum1 instanceof WrappedLokum) {
 			if(lokum2 instanceof StripedLokum){
 				formSpecialCombination((StripedLokum) lokum2, (WrappedLokum) lokum1);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyWrappedStripedbLokumScore(board);
 			}
 			else if (lokum2 instanceof WrappedLokum){
 				formSpecialCombination((WrappedLokum) lokum2, (WrappedLokum) lokum1);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyWrappedWrappedLokumScore(board);
 			}
 			else if (lokum2 instanceof ColorBombLokum){
 				formSpecialCombination((WrappedLokum) lokum1, (ColorBombLokum) lokum2);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyColorBombWrappedLokumScore(board);
 			}
 		} else if(lokum1 instanceof ColorBombLokum){
 			if(lokum2 instanceof NormalLokum){
 				formSpecialCombination((NormalLokum) lokum2, (ColorBombLokum) lokum1);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyNormalColorBombLokumScore(board);
 			}
 			else if(lokum2 instanceof StripedLokum){
 				formSpecialCombination((StripedLokum) lokum2, (ColorBombLokum) lokum1);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyColorBombStripedbLokumScore(board);
 			}
 			else if (lokum2 instanceof WrappedLokum){
 				formSpecialCombination((WrappedLokum) lokum2, (ColorBombLokum) lokum1);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyColorBombWrappedLokumScore(board);
 			}
 			else if (lokum2 instanceof ColorBombLokum){
 				formSpecialCombination((ColorBombLokum) lokum2, (ColorBombLokum) lokum1);
-				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyColorBombColorBombLokumScore(board);
+				
 			}
 		}
 	}
@@ -132,7 +121,8 @@ public class LokumCombinationAdapter {
 		}
 		specialCombination.add(rowLokums);
 		specialCombination.add(columnLokums);
-		System.out.println("Striped+Striped");
+		
+		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyStripedStripedbLokumScore(board);
 	}
 
 	public void formSpecialCombination(StripedLokum lokum1, WrappedLokum lokum2){
@@ -180,6 +170,8 @@ public class LokumCombinationAdapter {
 			}
 			specialCombination.add(column3Lokums);
 		}
+		
+		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyWrappedStripedbLokumScore(board);
 	}
 
 	public void formSpecialCombination(WrappedLokum lokum1, WrappedLokum lokum2){
@@ -219,6 +211,8 @@ public class LokumCombinationAdapter {
 			wrapdest[k] = tempa.get(k);
 		}
 		specialCombination.add(wrapdest);
+		
+		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyWrappedWrappedLokumScore();
 	}
 
 	public void formSpecialCombination(StripedLokum lokum1, ColorBombLokum lokum2){
@@ -243,6 +237,8 @@ public class LokumCombinationAdapter {
 			lokums[i] = sameColoredLokums.get(i);
 		}
 		specialCombination.add(lokums);
+		
+		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyColorBombStripedbLokumScore(sameColoredLokums.size());
 	}
 
 	public void formSpecialCombination(WrappedLokum lokum1, ColorBombLokum lokum2){
@@ -267,6 +263,8 @@ public class LokumCombinationAdapter {
 			lokums[i] = sameColoredLokums.get(i);
 		}
 		specialCombination.add(lokums);
+		
+		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyColorBombWrappedLokumScore(sameColoredLokums.size());
 	}
 
 	public void formSpecialCombination(ColorBombLokum lokum1, ColorBombLokum lokum2){
@@ -283,6 +281,8 @@ public class LokumCombinationAdapter {
 			lokums[i] = allLokums.get(i);
 		}
 		specialCombination.add(lokums);
+		
+		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyColorBombColorBombLokumScore(allLokums.size());
 	}
 
 	public void formSpecialCombination(NormalLokum lokum1, ColorBombLokum lokum2){
@@ -305,6 +305,8 @@ public class LokumCombinationAdapter {
 			lokums[i] = sameColoredLokums.get(i);
 		}
 		specialCombination.add(lokums);
+		
+		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyNormalColorBombLokumScore(sameColoredLokums.size());
 	}
 
 	public NormalLokum convertToNormanLokum(Lokum lokum){
