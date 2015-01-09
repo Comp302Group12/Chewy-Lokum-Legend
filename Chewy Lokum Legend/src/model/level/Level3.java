@@ -21,6 +21,7 @@ public class Level3 extends TimeBasedLevel {
 		};
 		Board board = new Board(430, 430, boardShape);
 		this.gamePlay = new GamePlay(board, this);
+		leveltime =5;
 		objectiveScore = 5000;
 		AdapterManager.getInstance().newGame();
 	}

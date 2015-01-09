@@ -92,6 +92,12 @@ public class GamePlay {
 	}
 
 	public void update() {
+		if(level instanceof TimeBasedLevel){
+			((TimeBasedLevel) level).updateFps();
+			if(((TimeBasedLevel) level).shouldGameFinish()){
+				isGameFinished = true;
+			}
+		}
 		if(isGameModeOn()){
 			if(level.shouldGameFinish()){
 				isGameFinished = true;

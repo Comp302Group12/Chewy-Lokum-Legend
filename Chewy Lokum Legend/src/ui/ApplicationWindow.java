@@ -66,10 +66,10 @@ public class ApplicationWindow extends JFrame {
 		});
 
 		/////////////////////////////////////////////////////////////////////////////
-		levelSelectionWindow = new LevelSelectionWindow(2);
+		levelSelectionWindow = new LevelSelectionWindow(3);
 		contentPane.add(levelSelectionWindow, "name_92176023342318");
 
-		for(int i=0; i<2; i++){
+		for(int i=0; i<3; i++){
 			String levelName = "model.level.Level"+(i+1);
 			((AbstractButton) levelSelectionWindow.levelButtons.get(i)).addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
