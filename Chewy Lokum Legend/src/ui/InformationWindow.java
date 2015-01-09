@@ -22,7 +22,7 @@ public class InformationWindow extends JPanel {
 	JLabel goalScoreLabel;
 	JLabel scoreLabel;
 	JLabel remainingQuantityLabel;
-	JButton pauseGameButton;
+	JLabel remainingSpecialSwapLabel;
 
 	public InformationWindow(int width, int height) {
 		// TODO Auto-generated constructor stub
@@ -31,8 +31,8 @@ public class InformationWindow extends JPanel {
 		this.height = height;
 		setSize(width, height);
 		setLayout(null);
-		int x = width / 14;
-		int y = height / 16;
+		int x = width / 8;
+		int y = height / 20;
 
 		goalScoreLabel = new JLabel("Goal Score:");
 		goalScoreLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -44,10 +44,22 @@ public class InformationWindow extends JPanel {
 		scoreLabel.setBounds(x, 6 * y, 12 * x, 4 * y);
 		add(scoreLabel);
 
-		remainingQuantityLabel = new JLabel("Remaining Moves:");
+		remainingQuantityLabel = new JLabel("Remaining Quantity:");
 		remainingQuantityLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		remainingQuantityLabel.setBounds(x, 11 * y, 12 * x, 4 * y);
 		add(remainingQuantityLabel);
 
+		remainingSpecialSwapLabel = new JLabel("Remaining S. Swaps:");
+		remainingSpecialSwapLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		remainingSpecialSwapLabel.setBounds(x, 16 * y, 12 * x, 4 * y);
+		add(remainingSpecialSwapLabel);
+
+	}
+
+	public void updateInformationWindow (String goalScore, String score, String remainingQuantity, String remainingSSwaps) {
+		goalScoreLabel.setText(goalScore);
+		scoreLabel.setText(score);
+		remainingQuantityLabel.setText(remainingQuantity);
+		remainingSpecialSwapLabel.setText(remainingSSwaps);
 	}
 }

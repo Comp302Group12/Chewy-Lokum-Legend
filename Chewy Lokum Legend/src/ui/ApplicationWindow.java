@@ -98,6 +98,12 @@ public class ApplicationWindow extends JFrame {
 			}
 		});
 
+		gameWindow.specialSwapButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				AdapterManager.getInstance().changeToSpecialLokumSwapperAdapter();
+			}
+		});
+
 		// ////////////////////////////////////////////////////////
 		pauseGameWindow = new PauseGameWindow();
 		contentPane.add(pauseGameWindow, "name_44933427952662");

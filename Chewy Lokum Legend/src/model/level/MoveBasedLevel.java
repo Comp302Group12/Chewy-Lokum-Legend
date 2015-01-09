@@ -9,7 +9,7 @@ import ui.*;
 
 public abstract class MoveBasedLevel extends Level {
 
-	int remainingMove;
+	public int remainingMove;
 
 	@Override
 	public boolean shouldGameFinish() {

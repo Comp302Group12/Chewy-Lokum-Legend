@@ -24,7 +24,7 @@ public class Level1 extends MoveBasedLevel {
 		Board board = new Board(430, 430, boardShape);
 		this.gamePlay = new GamePlay(board, this);
 		remainingMove = 10;
-		objectiveScore = 5000000;
+		objectiveScore = 5000;
 		AdapterManager.getInstance().newGame();
 	}
 

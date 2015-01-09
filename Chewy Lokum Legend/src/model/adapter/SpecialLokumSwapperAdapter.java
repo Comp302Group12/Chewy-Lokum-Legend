@@ -42,13 +42,18 @@ public class SpecialLokumSwapperAdapter extends LokumSwapperAdapter {
 	@Override
 	public void doBeforeSwapIsStarted() {
 		// TODO Auto-generated method stub
-		numOfRemainingSpecialSwaps--;
-		gamePlay.getBoard().swap(lokum1, lokum2);
+		if(numOfRemainingSpecialSwaps == 0){
+			AdapterManager.getInstance().changeToRegularLokumSwapperAdapter();
+			cancelSwap();
+		} else {
+			numOfRemainingSpecialSwaps--;
+			gamePlay.getBoard().swap(lokum1, lokum2);
+		}
 	}
 	@Override
 	public void doAfterSwapIsEnded() {
 		// TODO Auto-generated method stub
-
+		AdapterManager.getInstance().changeToRegularLokumSwapperAdapter();
 	}
 
 }

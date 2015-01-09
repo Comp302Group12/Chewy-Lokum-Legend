@@ -11,6 +11,8 @@ public class AdapterManager {
 
 	private static AdapterManager instance;
 	private DrawingAdapter currentDrawingAdapter;
+	private RegularLokumSwapperAdapter rlsAdapter;
+	private SpecialLokumSwapperAdapter slsAdaper;
 	private LokumSwapperAdapter currentLokumSwapperAdapter;
 	private LokumCombinationAdapter currentLokumCombinationAdapter;
 	private LokumDestroyerAdapter currentLokumDestroyerAdapter;
@@ -28,7 +30,9 @@ public class AdapterManager {
 	private AdapterManager() {
 		// TODO Auto-generated constructor stub
 		currentDrawingAdapter = new SimpleGraphicsDrawingAdapter();
-		currentLokumSwapperAdapter = new RegularLokumSwapperAdapter();
+		rlsAdapter = new RegularLokumSwapperAdapter();
+		slsAdaper = new SpecialLokumSwapperAdapter();
+		currentLokumSwapperAdapter = rlsAdapter;
 		currentLokumCombinationAdapter = new LokumCombinationAdapter();
 		currentLokumDestroyerAdapter = new LokumDestroyerAdapter();
 		currentLokumFallerAdapter = new LokumFallerAdapter();
@@ -38,7 +42,9 @@ public class AdapterManager {
 
 	public void newGame(){
 		currentDrawingAdapter = new SimpleGraphicsDrawingAdapter();
-		currentLokumSwapperAdapter = new RegularLokumSwapperAdapter();
+		rlsAdapter = new RegularLokumSwapperAdapter();
+		slsAdaper = new SpecialLokumSwapperAdapter();
+		currentLokumSwapperAdapter = rlsAdapter;
 		currentLokumCombinationAdapter = new LokumCombinationAdapter();
 		currentLokumDestroyerAdapter = new LokumDestroyerAdapter();
 		currentLokumFallerAdapter = new LokumFallerAdapter();
@@ -48,6 +54,10 @@ public class AdapterManager {
 
 	public DrawingAdapter getCurrentDrawingAdapter() {
 		return currentDrawingAdapter;
+	}
+	
+	public SpecialLokumSwapperAdapter getSlsAdaper() {
+		return slsAdaper;
 	}
 
 	public LokumSwapperAdapter getCurrentLokumSwapperAdapter() {
@@ -72,6 +82,14 @@ public class AdapterManager {
 
 	public SaveAndLoadAdapter getCurrentSaveAndLoadAdapter() {
 		return currentSaveAndLoadAdapter;
+	}
+
+	public void changeToSpecialLokumSwapperAdapter(){
+		currentLokumSwapperAdapter = slsAdaper;
+	}
+
+	public void changeToRegularLokumSwapperAdapter(){
+		currentLokumSwapperAdapter = rlsAdapter;
 	}
 
 }

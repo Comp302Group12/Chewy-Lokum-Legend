@@ -9,7 +9,7 @@ import ui.*;
 
 public abstract class Level {
 
-	protected int objectiveScore;
+	public int objectiveScore;
 	protected GamePlay gamePlay;
 
 	public GamePlay getGamePlay() {
