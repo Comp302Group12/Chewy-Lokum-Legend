@@ -30,7 +30,7 @@ public class LokumDestroyerAdapter {
 					((Destructible)board.lokumArray[k][l]).destroy();
 				}
 			}
-			AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().aCombinationIsDestroyed(combination);
+			//AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().aCombinationIsDestroyed(combination);
 		}
 
 		for(int i=0; i< AdapterManager.getInstance().getCurrentLokumCombinationAdapter().columnCombinations.size(); i++) {
@@ -57,7 +57,7 @@ public class LokumDestroyerAdapter {
 					((Destructible)board.lokumArray[k][l]).destroy();
 				}
 			}
-			AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().aCombinationIsDestroyed(combination);
+			//AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().aCombinationIsDestroyed(combination);
 		}
 	}
 	/**
