@@ -15,7 +15,7 @@ public class ScoreCalculatorAdapter {
 	public void updateNormalLokumScore (Lokum[] combination) {
 		
 		if (combination.length==3){
-			score+=30;
+			score+=60;
 		} 
 		System.out.println(score);
 		
