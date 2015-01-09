@@ -64,5 +64,48 @@ public class ScoreCalculatorAdapter {
 		System.out.println(score);
 	}
 	
+	public void destroyNormalColorBombLokumScore (Board board) {
+		
+		
+		
+	}
+	
+	public void destroyStripedStripedbLokumScore (Board board) {
+		
+		score += board.getNumOfLokumsInAColumn()*2*60 + board.getNumOfLokumsInARow()*2*60;
+		
+		System.out.println(score);
+	}
+	
+	public void destroyWrappedStripedbLokumScore (Board board) {
+	
+		score += board.getNumOfLokumsInAColumn()*3*60 + board.getNumOfLokumsInARow()*3*60;
+	}
+	
+	public void destroyColorBombStripedbLokumScore (Board board) {
+		
+		
+		
+	}
+	
+	public void destroyWrappedWrappedLokumScore (Board board) {
+		
+		score += 3600;
+		
+	}
+	
+	public void destroyColorBombWrappedLokumScore (Board board) {
+		
+		
+		
+	}
+	
+	public void destroyColorBombColorBombLokumScore (Board board) {
+		
+		
+		
+	}
+	
+	
 
 }
