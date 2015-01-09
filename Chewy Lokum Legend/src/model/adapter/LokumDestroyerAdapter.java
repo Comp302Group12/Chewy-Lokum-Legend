@@ -30,10 +30,11 @@ public class LokumDestroyerAdapter {
 					((Destructible)board.lokumArray[k][l]).destroy();
 				}
 			}
-			//AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().aCombinationIsDestroyed(combination);
+			AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().updateNormalLokumScore(combination);
 		}
 
 		for(int i=0; i< AdapterManager.getInstance().getCurrentLokumCombinationAdapter().columnCombinations.size(); i++) {
+			Lokum[] combination = AdapterManager.getInstance().getCurrentLokumCombinationAdapter().columnCombinations.get(i);
 			for(int j=0; j<AdapterManager.getInstance().getCurrentLokumCombinationAdapter().columnCombinations.get(i).length; j++) {
 				Lokum lokum = AdapterManager.getInstance().getCurrentLokumCombinationAdapter().columnCombinations.get(i)[j];
 				int k = board.getLokumArrayCoordinatesOfLokum(lokum)[0];
@@ -42,6 +43,7 @@ public class LokumDestroyerAdapter {
 					((Destructible)board.lokumArray[k][l]).destroy();
 				}
 			}
+			AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().updateNormalLokumScore(combination);
 		}
 	}
 
@@ -85,6 +87,8 @@ public class LokumDestroyerAdapter {
 					((Destructible) currentLokum).destroy();
 				}
 			}
+			int numOfLokumsInARow = board.getNumOfLokumsInARow();
+			AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyStripedLokumScore(numOfLokumsInARow);
 		} else {
 			for(int i=0; i<board.getNumOfLokumsInAColumn(); i++) {
 				Lokum currentLokum = board.lokumArray[i][coor[1]];
@@ -92,6 +96,8 @@ public class LokumDestroyerAdapter {
 					((Destructible) currentLokum).destroy();
 				}
 			}
+			int getNumOfLokumsInAColumn = board.getNumOfLokumsInARow();
+			AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyStripedLokumScore(getNumOfLokumsInAColumn);
 		}
 	}
 	/**
@@ -134,11 +140,15 @@ public class LokumDestroyerAdapter {
 		if(lowerLeftAdjacent instanceof Destructible) {
 			((Destructible) lowerLeftAdjacent).destroy();
 		}
+		
+		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyWrappedLokumScore();
 	}
 
 	public void destroy(ColorBombLokum lokum) {
 		int[] coor = board.getLokumArrayCoordinatesOfLokum(lokum);
 		board.lokumArray[coor[0]][coor[1]] = new DestroyedLokum(lokum.getX(), lokum.getY(), lokum.getWidth(), lokum.getHeight());
+		
+		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().destroyColorBombLokumScore(board);
 	}
 
 }

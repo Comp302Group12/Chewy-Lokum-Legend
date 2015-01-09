@@ -225,9 +225,15 @@ public class LokumCombinationAdapter {
 				Lokum lokum = new StripedLokum(combination[2].getColor(), combination[2].getX(), 
 						combination[2].getY(), combination[2].getWidth(), combination[2].getHeight(), false);
 				specialLokums.add(lokum);
+				
+				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().formedStripedLokumScore();
+				
 			} else if(combination.length >= 5) {
 				Lokum lokum = new ColorBombLokum(combination[2].getX(), combination[2].getY(), combination[2].getWidth(), combination[2].getHeight());
 				specialLokums.add(lokum);
+				
+				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().formedColorBombLokumScore();
+				
 			}
 		}
 		for(int i=0; i<columnCombinations.size(); i++){
@@ -236,9 +242,15 @@ public class LokumCombinationAdapter {
 				Lokum lokum = new StripedLokum(combination[2].getColor(), combination[2].getX(), 
 						combination[2].getY(), combination[2].getWidth(), combination[2].getHeight(), true);
 				specialLokums.add(lokum);
+				
+				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().formedStripedLokumScore();
+				
 			} else if(combination.length == 5) {
 				Lokum lokum = new ColorBombLokum(combination[2].getX(), combination[2].getY(), combination[2].getWidth(), combination[2].getHeight());
 				specialLokums.add(lokum);
+				
+				AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().formedColorBombLokumScore();
+				
 			}
 		}
 	}
@@ -257,6 +269,9 @@ public class LokumCombinationAdapter {
 					Lokum wrappedLokum = new WrappedLokum(combination[i].getColor(), combination[i].getX(), 
 							combination[i].getY(), combination[i].getWidth(), combination[i].getHeight());
 					specialLokums.add(wrappedLokum);
+					
+					AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().formedWrappedLokumScore();
+					
 				}
 			}
 			if(topAdjacent != null && lokumToSearchAdjacents.getColor() == topAdjacent.getColor()) {
@@ -266,6 +281,9 @@ public class LokumCombinationAdapter {
 					Lokum wrappedLokum = new WrappedLokum(combination[i].getColor(), combination[i].getX(), 
 							combination[i].getY(), combination[i].getWidth(), combination[i].getHeight());
 					specialLokums.add(wrappedLokum);
+					
+					AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().formedWrappedLokumScore();
+					
 				}
 			}
 			if(bottomAdjacent != null && lokumToSearchAdjacents.getColor() == bottomAdjacent.getColor()) {
@@ -275,6 +293,9 @@ public class LokumCombinationAdapter {
 					Lokum wrappedLokum = new WrappedLokum(combination[i].getColor(), combination[i].getX(), 
 							combination[i].getY(), combination[i].getWidth(), combination[i].getHeight());
 					specialLokums.add(wrappedLokum);
+					
+					AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().formedWrappedLokumScore();
+					
 				}
 			}
 		}
