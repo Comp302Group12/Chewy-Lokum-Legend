@@ -17,7 +17,188 @@ public class LokumCombinationAdapter {
 	public Board board;
 	public ArrayList<Lokum[]> rowCombinations;
 	public ArrayList<Lokum[]> columnCombinations;
+	public ArrayList<Lokum[]> specialCombination;
 	public ArrayList<Lokum> specialLokums;
+
+	public boolean doLokumsFormSpecialCombination(Lokum lokum1, Lokum lokum2){
+		if(lokum1 instanceof NormalLokum){
+			if(lokum2 instanceof ColorBombLokum){
+				return true;
+			}
+
+		} else if(lokum1 instanceof StripedLokum){
+			if(lokum2 instanceof StripedLokum){
+				return true;
+			}
+			else if (lokum2 instanceof WrappedLokum){
+				return true;
+			}
+			else if (lokum2 instanceof ColorBombLokum){
+				return true;
+			}
+
+		} else if(lokum1 instanceof WrappedLokum) {
+			if(lokum2 instanceof StripedLokum){
+				return true;
+			}
+			else if (lokum2 instanceof WrappedLokum){
+				return true;
+			}
+			else if (lokum2 instanceof ColorBombLokum){
+				return true;
+			}
+
+		} else if(lokum1 instanceof ColorBombLokum){
+			if(lokum2 instanceof NormalLokum){
+				return true;
+			}
+			else if(lokum2 instanceof StripedLokum){
+				return true;
+			}
+			else if (lokum2 instanceof WrappedLokum){
+				return true;
+			}
+			else if (lokum2 instanceof ColorBombLokum){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void formSpecialCombination(Lokum lokum1, Lokum lokum2){
+		if(lokum1 instanceof NormalLokum){
+			if(lokum2 instanceof ColorBombLokum){
+				formSpecialCombination((NormalLokum) lokum1, (ColorBombLokum) lokum2);
+			}
+
+		} else if(lokum1 instanceof StripedLokum){
+			if(lokum2 instanceof StripedLokum){
+				formSpecialCombination((StripedLokum) lokum1, (StripedLokum) lokum2);
+			}
+			else if (lokum2 instanceof WrappedLokum){
+				formSpecialCombination((StripedLokum) lokum1, (WrappedLokum) lokum2);
+			}
+			else if (lokum2 instanceof ColorBombLokum){
+				formSpecialCombination((StripedLokum) lokum1, (ColorBombLokum) lokum2);
+			}
+
+		} else if(lokum1 instanceof WrappedLokum) {
+			if(lokum2 instanceof StripedLokum){
+				formSpecialCombination((StripedLokum) lokum2, (WrappedLokum) lokum1);
+			}
+			else if (lokum2 instanceof WrappedLokum){
+				formSpecialCombination((WrappedLokum) lokum2, (WrappedLokum) lokum1);
+			}
+			else if (lokum2 instanceof ColorBombLokum){
+				formSpecialCombination((WrappedLokum) lokum1, (ColorBombLokum) lokum2);
+			}
+
+		} else if(lokum1 instanceof ColorBombLokum){
+			if(lokum2 instanceof NormalLokum){
+				formSpecialCombination((NormalLokum) lokum2, (ColorBombLokum) lokum1);
+			}
+			else if(lokum2 instanceof StripedLokum){
+				formSpecialCombination((StripedLokum) lokum2, (ColorBombLokum) lokum1);
+			}
+			else if (lokum2 instanceof WrappedLokum){
+				formSpecialCombination((WrappedLokum) lokum2, (ColorBombLokum) lokum1);
+			}
+			else if (lokum2 instanceof ColorBombLokum){
+				formSpecialCombination((ColorBombLokum) lokum2, (ColorBombLokum) lokum1);
+			}
+		}
+	}
+
+	public void formSpecialCombination(StripedLokum lokum1, StripedLokum lokum2){
+		specialCombination = new ArrayList<Lokum[]>();
+		int[] coorOfLokum1 = board.getLokumArrayCoordinatesOfLokum(lokum1);
+		board.lokumArray[coorOfLokum1[0]][coorOfLokum1[1]] = convertToNormanLokum(lokum1);
+		int[] coorOfLokum2 = board.getLokumArrayCoordinatesOfLokum(lokum2);
+		Lokum[] rowLokums = new Lokum[board.getNumOfLokumsInARow()];
+		Lokum[] columnLokums = new Lokum[board.getNumOfLokumsInAColumn()];
+		board.lokumArray[coorOfLokum2[0]][coorOfLokum2[1]] = convertToNormanLokum(lokum2);
+		for(int i=0; i< rowLokums.length; i++){
+			rowLokums[i] = board.lokumArray[coorOfLokum1[0]][i];
+		}
+		for(int i=0; i< columnLokums.length; i++){
+			columnLokums[i] = board.lokumArray[i][coorOfLokum2[1]];
+		}
+		specialCombination.add(rowLokums);
+		specialCombination.add(columnLokums);
+	}
+
+	public void formSpecialCombination(StripedLokum lokum1, WrappedLokum lokum2){
+		specialCombination = new ArrayList<Lokum[]>();
+		int[] coorOfLokum1 = board.getLokumArrayCoordinatesOfLokum(lokum1);
+		board.lokumArray[coorOfLokum1[0]][coorOfLokum1[1]] = convertToNormanLokum(lokum1);
+		int[] coorOfLokum2 = board.getLokumArrayCoordinatesOfLokum(lokum2);
+		board.lokumArray[coorOfLokum2[0]][coorOfLokum2[1]] = convertToNormanLokum(lokum2);
+		if(board.getTopAdjacentOfLokum(lokum1) != null){
+			Lokum[] row1Lokums = new Lokum[board.getNumOfLokumsInARow()];
+			for(int i=0; i< row1Lokums.length; i++){
+				row1Lokums[i] = board.lokumArray[coorOfLokum1[0]-1][i];
+			}
+			specialCombination.add(row1Lokums);
+		}
+		Lokum[] row2Lokums = new Lokum[board.getNumOfLokumsInARow()];
+		for(int i=0; i< row2Lokums.length; i++){
+			row2Lokums[i] = board.lokumArray[coorOfLokum1[0]][i];
+		}
+		specialCombination.add(row2Lokums);
+		if(board.getBottomAdjacentOfLokum(lokum1) != null){
+			Lokum[] row3Lokums = new Lokum[board.getNumOfLokumsInARow()];
+			for(int i=0; i< row3Lokums.length; i++){
+				row3Lokums[i] = board.lokumArray[coorOfLokum1[0]+1][i];
+			}
+			specialCombination.add(row3Lokums);
+		}
+		if(board.getLeftAdjacentOfLokum(lokum2) != null){
+			Lokum[] column1Lokums = new Lokum[board.getNumOfLokumsInAColumn()];
+			for(int i=0; i< column1Lokums.length; i++){
+				column1Lokums[i] = board.lokumArray[i][coorOfLokum2[1]-1];
+			}
+			specialCombination.add(column1Lokums);
+		}
+		Lokum[] column2Lokums = new Lokum[board.getNumOfLokumsInAColumn()];
+		for(int i=0; i< column2Lokums.length; i++){
+			column2Lokums[i] = board.lokumArray[i][coorOfLokum2[1]];
+		}
+		specialCombination.add(column2Lokums);
+		if(board.getRightAdjacentOfLokum(lokum2) != null){
+
+			Lokum[] column3Lokums = new Lokum[board.getNumOfLokumsInAColumn()];
+			for(int i=0; i< column3Lokums.length; i++){
+				column3Lokums[i] = board.lokumArray[i][coorOfLokum2[1]+1];
+			}
+			specialCombination.add(column3Lokums);
+		}
+	}
+
+	public void formSpecialCombination(WrappedLokum lokum1, WrappedLokum lokum2){
+		specialCombination = new ArrayList<Lokum[]>();
+	}
+
+	public void formSpecialCombination(StripedLokum lokum1, ColorBombLokum lokum2){
+		specialCombination = new ArrayList<Lokum[]>();
+	}
+
+	public void formSpecialCombination(WrappedLokum lokum1, ColorBombLokum lokum2){
+		specialCombination = new ArrayList<Lokum[]>();
+	}
+
+	public void formSpecialCombination(ColorBombLokum lokum1, ColorBombLokum lokum2){
+		specialCombination = new ArrayList<Lokum[]>();
+	}
+
+	public void formSpecialCombination(NormalLokum lokum1, ColorBombLokum lokum2){
+		specialCombination = new ArrayList<Lokum[]>();
+	}
+
+	public NormalLokum convertToNormanLokum(Lokum lokum){
+		NormalLokum convertedLokum = new NormalLokum(lokum.getColor(), lokum.getX(), lokum.getY(), lokum.getWidth(), lokum.getHeight());
+		return convertedLokum;
+
+	}
 	/**
 	 * @modifies board lokumarray
 	 * @requires speciallokums are found and put into array list

@@ -21,7 +21,8 @@ public class LokumDestroyerAdapter {
 	public void destroyExistingCombinations(GamePlay gamePlay) {
 		board = gamePlay.getBoard();
 		for(int i=0; i< AdapterManager.getInstance().getCurrentLokumCombinationAdapter().rowCombinations.size(); i++) {
-			for(int j=0; j<AdapterManager.getInstance().getCurrentLokumCombinationAdapter().rowCombinations.get(i).length; j++) {
+			Lokum[] combination = AdapterManager.getInstance().getCurrentLokumCombinationAdapter().rowCombinations.get(i);
+			for(int j=0; j<combination.length; j++) {
 				Lokum lokum = AdapterManager.getInstance().getCurrentLokumCombinationAdapter().rowCombinations.get(i)[j];
 				int k = board.getLokumArrayCoordinatesOfLokum(lokum)[0];
 				int l = board.getLokumArrayCoordinatesOfLokum(lokum)[1];
@@ -29,6 +30,7 @@ public class LokumDestroyerAdapter {
 					((Destructible)board.lokumArray[k][l]).destroy();
 				}
 			}
+			AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().aCombinationIsDestroyed(combination);
 		}
 
 		for(int i=0; i< AdapterManager.getInstance().getCurrentLokumCombinationAdapter().columnCombinations.size(); i++) {
@@ -40,6 +42,22 @@ public class LokumDestroyerAdapter {
 					((Destructible)board.lokumArray[k][l]).destroy();
 				}
 			}
+		}
+	}
+
+	public void destroySpecialCombination(GamePlay gamePlay) {
+		board = gamePlay.getBoard();
+		for(int i=0; i< AdapterManager.getInstance().getCurrentLokumCombinationAdapter().specialCombination.size(); i++) {
+			Lokum[] combination = AdapterManager.getInstance().getCurrentLokumCombinationAdapter().specialCombination.get(i);
+			for(int j=0; j<combination.length; j++) {
+				Lokum lokum = combination[j];
+				int k = board.getLokumArrayCoordinatesOfLokum(lokum)[0];
+				int l = board.getLokumArrayCoordinatesOfLokum(lokum)[1];
+				if(board.lokumArray[k][l] instanceof Destructible){
+					((Destructible)board.lokumArray[k][l]).destroy();
+				}
+			}
+			AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().aCombinationIsDestroyed(combination);
 		}
 	}
 	/**

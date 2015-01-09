@@ -1,5 +1,11 @@
 package model.adapter;
 
-public class ScoreCalculatorAdapter {
+import model.lokum.Lokum;
 
+public class ScoreCalculatorAdapter {
+	int score;
+	
+	public void aCombinationIsDestroyed(Lokum[] combination) {
+		
+	}
 }

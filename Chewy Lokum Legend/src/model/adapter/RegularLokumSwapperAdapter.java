@@ -48,11 +48,13 @@ public class RegularLokumSwapperAdapter extends LokumSwapperAdapter {
 	@Override
 	public void doAfterSwapIsEnded() {
 		// TODO Auto-generated method stub
-		if(!gamePlay.doesBoardHaveCombination()) {
-			if(isSwapBackInProgress) {
-				isSwapBackInProgress = false;
-			} else {
-				swapBack();
+		if(!gamePlay.doLokumsFormSpecialCombination(lokum1, lokum2)){
+			if(!gamePlay.doesBoardHaveCombination()) {
+				if(isSwapBackInProgress) {
+					isSwapBackInProgress = false;
+				} else {
+					swapBack();
+				}
 			}
 		}
 	}

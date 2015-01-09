@@ -50,6 +50,11 @@ public class GamePlay {
 		AdapterManager.getInstance().getCurrentLokumSwapperAdapter().swapLokums(this, selectedLokum1, selectedLokum2);
 		resetSelectedLokums();
 	}
+	
+	public boolean doLokumsFormSpecialCombination(Lokum lokum1, Lokum lokum2) {
+		return AdapterManager.getInstance().getCurrentLokumCombinationAdapter().doLokumsFormSpecialCombination(lokum1, lokum2);
+	}
+	
 
 	public boolean doesBoardHaveCombination() {
 		return AdapterManager.getInstance().getCurrentLokumCombinationAdapter().doesBoardHaveCombination(this);

@@ -76,6 +76,11 @@ public abstract class LokumSwapperAdapter implements ActionListener {
 	public void stopSwap() {
 		timer.stop();
 		doAfterSwapIsEnded();
+		if(gamePlay.doLokumsFormSpecialCombination(lokum1, lokum2)){
+			AdapterManager.getInstance().getCurrentLokumCombinationAdapter().formSpecialCombination(lokum1, lokum2);
+			AdapterManager.getInstance().getCurrentLokumDestroyerAdapter().destroySpecialCombination(gamePlay);
+			gamePlay.fallLokums();
+		}
 		isSwapInProgres = false;
 	}
 	/**
