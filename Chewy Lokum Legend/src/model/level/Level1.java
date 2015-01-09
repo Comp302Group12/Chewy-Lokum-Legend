@@ -16,10 +16,10 @@ public class Level1 extends MoveBasedLevel {
 				{"NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum"},
 				{"NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum"},
 				{"NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum"},
-				{"NormalLokum", "NormalLokum", "NormalLokum", "StripedLokum", "ColorBombLokum", "NormalLokum", "NormalLokum", "NormalLokum"},
+				{"NormalLokum", "NormalLokum", "NormalLokum", "StripedLokum", "StripedLokum", "NormalLokum", "NormalLokum", "NormalLokum"},
 				{"NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum"},
 				{"NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum"},
-				{"NormalLokum", "NormalLokum", "NormalLokum", "WrappedLokum", "ColorBombLokum", "NormalLokum", "NormalLokum", "NormalLokum"}
+				{"NormalLokum", "NormalLokum", "NormalLokum", "StripedLokum", "StripedLokum", "NormalLokum", "NormalLokum", "NormalLokum"}
 		};
 		Board board = new Board(430, 430, boardShape);
 		this.gamePlay = new GamePlay(board, this);

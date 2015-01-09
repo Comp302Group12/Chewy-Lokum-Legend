@@ -3,6 +3,7 @@ package model.adapter;
 import model.Board;
 import model.GamePlay;
 import model.interfaces.Destructible;
+import model.level.TimeBasedLevel;
 import model.lokum.ColorBombLokum;
 import model.lokum.DestroyedLokum;
 import model.lokum.Lokum;
@@ -13,6 +14,7 @@ import model.lokum.WrappedLokum;
 
 public class LokumDestroyerAdapter {
 
+	GamePlay gamePlay;
 	Board board;
 	/**
 	 * @modifies board lokumarray
@@ -20,6 +22,7 @@ public class LokumDestroyerAdapter {
 	 * @effects lokums that create the combination are converted to destroyed lokums,  board is updated.
 	 */	
 	public void destroyExistingCombinations(GamePlay gamePlay) {
+		this.gamePlay = gamePlay;
 		board = gamePlay.getBoard();
 		for(int i=0; i< AdapterManager.getInstance().getCurrentLokumCombinationAdapter().rowCombinations.size(); i++) {
 			Lokum[] combination = AdapterManager.getInstance().getCurrentLokumCombinationAdapter().rowCombinations.get(i);
@@ -148,6 +151,9 @@ public class LokumDestroyerAdapter {
 	public void destroy(TimeLokum lokum) {
 		int[] coor = board.getLokumArrayCoordinatesOfLokum(lokum);
 		board.lokumArray[coor[0]][coor[1]] = new DestroyedLokum(lokum.getX(), lokum.getY(), lokum.getWidth(), lokum.getHeight());
+		if(gamePlay.level instanceof TimeBasedLevel){
+			((TimeBasedLevel)gamePlay.level).expandTime(lokum.getTime());
+		}
 	}
 
 	public void destroy(ColorBombLokum lokum) {

@@ -26,7 +26,6 @@ public class LokumCombinationAdapter {
 			if(lokum2 instanceof ColorBombLokum){
 				return true;
 			}
-
 		} else if(lokum1 instanceof StripedLokum){
 			if(lokum2 instanceof StripedLokum){
 				return true;
@@ -37,7 +36,6 @@ public class LokumCombinationAdapter {
 			else if (lokum2 instanceof ColorBombLokum){
 				return true;
 			}
-
 		} else if(lokum1 instanceof WrappedLokum) {
 			if(lokum2 instanceof StripedLokum){
 				return true;
@@ -48,7 +46,6 @@ public class LokumCombinationAdapter {
 			else if (lokum2 instanceof ColorBombLokum){
 				return true;
 			}
-
 		} else if(lokum1 instanceof ColorBombLokum){
 			if(lokum2 instanceof NormalLokum){
 				return true;
@@ -81,7 +78,6 @@ public class LokumCombinationAdapter {
 			else if (lokum2 instanceof ColorBombLokum){
 				formSpecialCombination((StripedLokum) lokum1, (ColorBombLokum) lokum2);
 			}
-
 		} else if(lokum1 instanceof WrappedLokum) {
 			if(lokum2 instanceof StripedLokum){
 				formSpecialCombination((StripedLokum) lokum2, (WrappedLokum) lokum1);
@@ -92,7 +88,6 @@ public class LokumCombinationAdapter {
 			else if (lokum2 instanceof ColorBombLokum){
 				formSpecialCombination((WrappedLokum) lokum1, (ColorBombLokum) lokum2);
 			}
-
 		} else if(lokum1 instanceof ColorBombLokum){
 			if(lokum2 instanceof NormalLokum){
 				formSpecialCombination((NormalLokum) lokum2, (ColorBombLokum) lokum1);
@@ -125,6 +120,7 @@ public class LokumCombinationAdapter {
 		}
 		specialCombination.add(rowLokums);
 		specialCombination.add(columnLokums);
+		System.out.println("Striped+Striped");
 	}
 
 	public void formSpecialCombination(StripedLokum lokum1, WrappedLokum lokum2){
@@ -316,7 +312,7 @@ public class LokumCombinationAdapter {
 		StripedLokum convertedLokum = new StripedLokum(lokum.getColor(), lokum.getX(), lokum.getY(), lokum.getWidth(), lokum.getHeight(), horizontal);
 		return convertedLokum;
 	}
-	
+
 	public WrappedLokum convertToWrappedLokum(Lokum lokum){
 		WrappedLokum convertedLokum = new WrappedLokum(lokum.getColor(), lokum.getX(), lokum.getY(), lokum.getWidth(), lokum.getHeight());
 		return convertedLokum;
