@@ -3,6 +3,7 @@ package model.adapter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.Timer;
 
@@ -10,6 +11,7 @@ import ui.AnimationWindow;
 import model.Board;
 import model.GamePlay;
 import model.interfaces.Movable;
+import model.level.TimeBasedLevel;
 import model.lokum.DestroyedLokum;
 import model.lokum.EmptySpace;
 import model.lokum.Lokum;
@@ -52,7 +54,17 @@ public class LokumFallerAdapter implements ActionListener {
 	public void putRandomLokumsToTopRow() {
 		for(int i=0; i<board.getNumOfLokumsInARow(); i++){
 			if(board.lokumArray[0][i] instanceof DestroyedLokum) {
-				board.lokumArray[0][i] = board.createRandomLokum("NormalLokum", 0, i);
+				if(gamePlay.level instanceof TimeBasedLevel){
+					Random rgen = new Random();
+					int random = rgen.nextInt(10);
+					if(random == 0){
+						board.lokumArray[0][i] = board.createRandomLokum("TimeLokum", 0, i);
+					} else {
+						board.lokumArray[0][i] = board.createRandomLokum("NormalLokum", 0, i);
+					}
+				} else {
+					board.lokumArray[0][i] = board.createRandomLokum("NormalLokum", 0, i);
+				}
 			}
 		}
 	}
@@ -92,7 +104,7 @@ public class LokumFallerAdapter implements ActionListener {
 		timer.stop();
 		isFallInProgress = false;
 	}
-	
+
 	public boolean isFallNeeded() {
 		return !lokumsToFallDown.isEmpty();
 	}
