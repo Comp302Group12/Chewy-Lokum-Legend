@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<savedGame level="1" numOfRemainingMoves="8" score="1920">
+<board numOfLokumsInAColumn="8" numOfLokumsInARow="8">
+<lokums>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="5" y="5"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="58" y="5"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="111" y="5"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="164" y="5"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="217" y="5"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="270" y="5"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="323" y="5"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="376" y="5"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="5" y="58"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="58" y="58"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="111" y="58"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="164" y="58"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="217" y="58"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="270" y="58"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="323" y="58"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="376" y="58"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="5" y="111"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="58" y="111"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="111" y="111"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="164" y="111"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="217" y="111"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="270" y="111"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="323" y="111"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="376" y="111"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="5" y="164"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="58" y="164"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="111" y="164"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="164" y="164"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="217" y="164"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="270" y="164"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="323" y="164"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="376" y="164"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="5" y="217"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="58" y="217"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="111" y="217"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="164" y="217"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="217" y="217"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="270" y="217"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="323" y="217"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="376" y="217"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="5" y="270"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="58" y="270"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="111" y="270"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="StripedLokum">
+<positionOfLokum x="164" y="270"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="217" y="270"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="270" y="270"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="323" y="270"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="376" y="270"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="5" y="323"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="58" y="323"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="111" y="323"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="164" y="323"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="217" y="323"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="270" y="323"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="323" y="323"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="0"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="376" y="323"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="5" y="376"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="58" y="376"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="111" y="376"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="0"/>
+</lokum>
+<lokum typeOfLokum="StripedLokum">
+<positionOfLokum x="164" y="376"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="217" y="376"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="0" g="255" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="270" y="376"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="323" y="376"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="255" g="0" r="255"/>
+</lokum>
+<lokum typeOfLokum="NormalLokum">
+<positionOfLokum x="376" y="376"/>
+<sizeOfLokum height="42" width="42"/>
+<colorOfLokum b="175" g="175" r="255"/>
+</lokum>
+</lokums>
+</board>
+</savedGame>

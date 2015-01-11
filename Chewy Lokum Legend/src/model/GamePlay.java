@@ -27,6 +27,14 @@ public class GamePlay {
 		return board;
 	}
 
+	public void setBoard(Board board) {
+		this.board = board;
+	}
+
+	public Level getLevel() {
+		return level;
+	}
+
 	public boolean isGameFinished() {
 		return isGameFinished;
 	}
@@ -78,6 +86,22 @@ public class GamePlay {
 
 	public void fallLokums() {
 		AdapterManager.getInstance().getCurrentLokumFallerAdapter().fallLokums(this);
+	}
+
+	public int getScore(){
+		return AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().getScore();
+	}
+
+	public void setScore(int score){
+		AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().setScore(score);
+	}
+
+	public void getRemainingQuantity(){
+		level.getRemainingQuantity();
+	}
+	
+	public void setRemainingQuantity(int quantity){
+		level.setRemainingQuantity(quantity);
 	}
 
 	public boolean isGameModeOn() {

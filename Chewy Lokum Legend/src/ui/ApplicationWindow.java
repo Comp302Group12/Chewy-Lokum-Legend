@@ -54,6 +54,9 @@ public class ApplicationWindow extends JFrame {
 
 		menuWindow.loadGameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				GamePlay newGamePlay = AdapterManager.getInstance().getCurrentSaveAndLoadAdapter().loadGameFromTheFile();
+				gameWindow.newLevelSelected(newGamePlay.getLevel());
+				gameWindow.animationWindow.gamePlay = newGamePlay;
 				menuWindow.setVisible(false);
 				gameWindow.setVisible(true);
 			}
@@ -112,6 +115,12 @@ public class ApplicationWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				pauseGameWindow.setVisible(false);
 				gameWindow.setVisible(true);
+			}
+		});
+
+		pauseGameWindow.saveGameButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdapterManager.getInstance().getCurrentSaveAndLoadAdapter().saveGameToTheFile(gameWindow.animationWindow.gamePlay);
 			}
 		});
 

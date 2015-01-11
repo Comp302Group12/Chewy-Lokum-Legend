@@ -56,7 +56,7 @@ public class GameWindow extends JPanel {
 		animationWindow.setLocation(0, 0);
 		add(animationWindow);
 
-		String objectiveScore = "Goal Score: "+level.objectiveScore;
+		String objectiveScore = "Goal Score: "+level.goalScore;
 		String score = "Score: "+AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().score;		
 		String remainingQuantity;
 		if(level instanceof MoveBasedLevel){

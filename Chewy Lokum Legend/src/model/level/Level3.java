@@ -19,10 +19,11 @@ public class Level3 extends TimeBasedLevel {
 				{"NormalLokum", "NormalLokum", "NormalLokum", "TimeLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum"},
 				{"ColorBombLokum", "TimeLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum"}
 		};
+		this.boardShape = boardShape;
 		Board board = new Board(430, 430, boardShape);
 		this.gamePlay = new GamePlay(board, this);
 		remainingTime = 30;
-		objectiveScore = 5000;
+		goalScore = 5000;
 		AdapterManager.getInstance().newGame();
 	}
 	

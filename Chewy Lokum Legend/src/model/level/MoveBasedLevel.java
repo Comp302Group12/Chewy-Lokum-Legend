@@ -12,9 +12,21 @@ public abstract class MoveBasedLevel extends Level {
 	public int remainingMove;
 
 	@Override
+	public int getRemainingQuantity() {
+		// TODO Auto-generated method stub
+		return remainingMove;
+	}
+	
+	@Override
+	public void setRemainingQuantity(int quantity) {
+		// TODO Auto-generated method stub
+		remainingMove = quantity;
+	}
+
+	@Override
 	public boolean shouldGameFinish() {
 		// TODO Auto-generated method stub
-		if(objectiveScore <= AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().score || remainingMove <= 0){
+		if(goalScore <= AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().score || remainingMove <= 0){
 			return true;
 		}
 		return false;

@@ -93,7 +93,7 @@ public class AnimationWindow extends JPanel {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			String objectiveScore = "Goal Score: "+level.objectiveScore;
+			String objectiveScore = "Goal Score: "+level.goalScore;
 			String score = "Score: "+AdapterManager.getInstance().getCurrentScoreCalculatorAdapter().score;		
 			String remainingQuantity;
 			if(level instanceof MoveBasedLevel){

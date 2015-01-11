@@ -21,10 +21,11 @@ public class Level1 extends MoveBasedLevel {
 				{"NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum", "NormalLokum"},
 				{"NormalLokum", "NormalLokum", "NormalLokum", "StripedLokum", "StripedLokum", "NormalLokum", "NormalLokum", "NormalLokum"}
 		};
+		this.boardShape = boardShape;
 		Board board = new Board(430, 430, boardShape);
 		this.gamePlay = new GamePlay(board, this);
 		remainingMove = 10;
-		objectiveScore = 5000;
+		goalScore = 5000;
 		AdapterManager.getInstance().newGame();
 	}
 
