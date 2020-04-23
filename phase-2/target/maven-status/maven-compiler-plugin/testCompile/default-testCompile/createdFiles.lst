@@ -1,0 +1,4 @@
+assertion/BoardAssertions.class
+junittest/BoardJUnitTest.class
+assertion/GamePlayAssertions.class
+assertion/LokumAssertions.class
