@@ -4,7 +4,7 @@ This repository contains the term project of a course in which a game similar to
 ![](/phase-2/docs/screenshots/gameplay-1.png)\
 ![](/phase-2/docs/screenshots/gameplay-2.png)\
 You can see more under /phase-2/docs/screenshots.
-### Contributors
+### Other Contributors
 Anıl Sayar\
 Ömer Akın\
 Yusuf Erdal
